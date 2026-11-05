@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Top Shelf Cigars</title>
+<meta name="description" content="Live deals on premium handmade cigars from top online stores, checked every hour, plus a local cigar shop finder.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='13' width='26' height='6' rx='3' fill='%238a5a33'/%3E%3Crect x='19' y='12' width='4' height='8' fill='%23c9a15a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: sticky glass nav → hero with live stats and drifting smoke → match quiz → sticky filter bar → singles grid → box deals → shop finder → plans. Dark-only: an after-hours lounge rendered as a modern app. */
+:root {
+  color-scheme: dark;
+  --bg: #0b0907;
+  --bg-2: #120e0b;
+  --surface: rgba(255, 236, 214, .035);
+  --surface-2: rgba(255, 236, 214, .06);
+  --solid: #16110d;
+  --line: rgba(255, 228, 196, .09);
+  --line-2: rgba(255, 228, 196, .17);
+  --text: #f4ede4;
+  --muted: #a69888;
+  --dim: #716557;
+  --amber: #f2b45c;
+  --amber-2: #ffcf87;
+  --ember: #ff6b2c;
+  --good: #7fd19b;
+  --f-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f-ui: "Geist", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --f-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r: 18px;
+  --gut-l: max(16px, env(safe-area-inset-left, 0px));
+  --gut-r: max(16px, env(safe-area-inset-right, 0px));
+}
+* { box-sizing: border-box; }
+html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--f-ui);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01";
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: rgba(11, 9, 7, .82); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+.container { max-width: 1180px; margin: 0 auto; padding-left: var(--gut-l); padding-right: var(--gut-r); }
+.eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(11, 9, 7, .72); backdrop-filter: saturate(140%) blur(16px); -webkit-backdrop-filter: saturate(140%) blur(16px); border-bottom: 1px solid var(--line); }
+.nav .container { display: flex; align-items: center; gap: 20px; height: 60px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; letter-spacing: -.01em; font-size: 16px; white-space: nowrap; }
+.logo i { width: 26px; height: 26px; border-radius: 8px; background: conic-gradient(from 210deg, var(--ember), var(--amber), #7a3d17, var(--ember)); box-shadow: 0 0 18px rgba(255, 107, 44, .45); display: block; position: relative; }
+.logo i::after { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: var(--bg); }
+.logo em { font-family: var(--f-display); font-style: italic; font-weight: 400; font-size: 19px; color: var(--amber-2); }
+.links { display: flex; gap: 4px; margin-left: auto; }
+.links a { text-decoration: none; color: var(--muted); font-size: 14px; padding: 7px 12px; border-radius: 999px; }
+.links a:hover { color: var(--text); background: var(--surface-2); }
+.nav .cta { margin-left: 4px; }
+@media (max-width: 760px) { .links { display: none; } .nav .cta { margin-left: auto; } }
+
+/* Buttons */
+.btn, .shop { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 14px var(--f-ui); text-decoration: none; border-radius: 999px; padding: 11px 18px; cursor: pointer; border: 1px solid transparent; white-space: nowrap; transition: transform .15s ease, box-shadow .2s ease, background .2s ease; }
+.btn-primary, .shop { background: linear-gradient(180deg, var(--amber-2), var(--amber)); color: #1b1006; box-shadow: 0 6px 22px -8px rgba(242, 180, 92, .7), inset 0 1px 0 rgba(255, 255, 255, .35); }
+.btn-primary:hover, .shop:hover { box-shadow: 0 10px 30px -8px rgba(255, 140, 60, .8), inset 0 1px 0 rgba(255, 255, 255, .35); }
+.btn-ghost, .ghost { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--f-ui); text-decoration: none; border-radius: 999px; padding: 10px 16px; cursor: pointer; background: var(--surface-2); color: var(--text); border: 1px solid var(--line-2); }
+.btn-ghost:hover, .ghost:hover { background: rgba(255, 236, 214, .1); }
+.btn-sm { padding: 8px 14px; font-size: 13px; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background:
+  radial-gradient(60% 80% at 85% 10%, rgba(255, 107, 44, .16), transparent 60%),
+  radial-gradient(50% 60% at 10% 100%, rgba(242, 180, 92, .08), transparent 70%), var(--bg); }
+#smoke { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .9; }
+.hero .container { position: relative; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 40px; align-items: center; padding-block: 64px 56px; }
+.hero h1 { font-family: var(--f-ui); font-weight: 600; font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: .98; letter-spacing: -.045em; margin: 14px 0 18px; text-wrap: balance; }
+.hero h1 em { font-family: var(--f-display); font-weight: 400; font-style: italic; letter-spacing: -.01em; background: linear-gradient(100deg, var(--amber-2), var(--ember)); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .06em; }
+.hero .lede { color: var(--muted); font-size: 17px; max-width: 52ch; margin: 0 0 26px; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .06em; padding: 5px 11px 5px 9px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface); color: var(--muted); }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px rgba(127, 209, 155, .15), 0 0 10px var(--good); flex: none; }
+.dot.stale { background: var(--ember); box-shadow: 0 0 0 3px rgba(255, 107, 44, .15), 0 0 10px var(--ember); }
+@media (prefers-reduced-motion: no-preference) { .dot { animation: pulse 2.4s ease-in-out infinite; } @keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(127, 209, 155, 0), 0 0 10px var(--good); } } }
+.stats { border: 1px solid var(--line-2); border-radius: 22px; background: linear-gradient(180deg, rgba(255, 236, 214, .06), rgba(255, 236, 214, .02)); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .8); }
+.stats-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.stat { background: var(--solid); padding: 14px 16px; }
+.stat b { display: block; font-size: 30px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.stat span { font-size: 12.5px; color: var(--muted); }
+.stats-foot { font-family: var(--f-mono); font-size: 11.5px; color: var(--dim); }
+@media (max-width: 860px) { .hero .container { grid-template-columns: 1fr; gap: 28px; padding-block: 44px 40px; } }
+
+/* Sections */
+main { display: flex; flex-direction: column; gap: 64px; padding-block: 56px 72px; }
+.section-h { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; scroll-margin-top: 140px; }
+.section-h h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 600; letter-spacing: -.035em; line-height: 1.05; margin: 6px 0 0; text-wrap: balance; }
+.section-h h2 em { font-family: var(--f-display); font-style: italic; font-weight: 400; color: var(--amber-2); letter-spacing: 0; }
+.section-h p { margin: 6px 0 0; color: var(--muted); max-width: 56ch; }
+
+/* Filters */
+.filters { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 60px); z-index: 10; display: flex; align-items: center; gap: 10px 18px; padding: 10px 14px; border: 1px solid var(--line-2); border-radius: 16px; background: rgba(18, 14, 11, .82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); overflow-x: auto; scrollbar-width: none; margin-bottom: 22px; }
+.filters::-webkit-scrollbar { display: none; }
+.fgroup { display: flex; align-items: center; gap: 8px; flex: none; }
+.fgroup > span { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); white-space: nowrap; display: flex; align-items: center; gap: 5px; }
+.chips { display: flex; gap: 4px; }
+.chip { font: 500 13px var(--f-ui); padding: 6px 12px; border-radius: 999px; border: 1px solid transparent; background: transparent; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.chip:hover { color: var(--text); background: var(--surface-2); }
+.chip[aria-pressed="true"] { background: var(--text); color: var(--bg); font-weight: 600; }
+.chip:disabled, select:disabled { opacity: .4; cursor: not-allowed; }
+select { font: 500 13px var(--f-ui); padding: 7px 28px 7px 12px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23a69888' fill='none' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 11px center; color: var(--text); appearance: none; -webkit-appearance: none; }
+.pro-tag { font-family: var(--f-mono); font-size: 9px; letter-spacing: .08em; color: #1b1006; background: var(--amber); border-radius: 4px; padding: 1px 4px; font-weight: 500; }
+.count { margin-left: auto; font-family: var(--f-mono); font-size: 12px; color: var(--muted); white-space: nowrap; flex: none; padding-left: 8px; }
+
+/* Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 16px; }
+.deal { position: relative; display: flex; flex-direction: column; min-width: 0; border-radius: var(--r); border: 1px solid var(--line); background: linear-gradient(180deg, var(--surface-2), var(--surface)); overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) { .deal { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; } .deal:hover { transform: translateY(-3px); } }
+.deal:hover { border-color: var(--line-2); box-shadow: 0 24px 48px -28px rgba(255, 107, 44, .45); }
+.art { position: relative; height: 150px; display: grid; place-items: center; overflow: hidden; background: radial-gradient(70% 90% at 50% 110%, rgba(255, 107, 44, .22), transparent 60%), radial-gradient(90% 120% at 30% 0%, #2a1c12 0%, #140f0b 70%); border-bottom: 1px solid var(--line); }
+.art img { width: 100%; height: 100%; object-fit: contain; padding: 10px; display: block; }
+.art svg { width: 88%; max-width: 300px; height: auto; filter: drop-shadow(0 14px 14px rgba(0, 0, 0, .6)); }
+.art .ribbon { position: absolute; top: 10px; left: 10px; font-family: var(--f-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--text); background: rgba(11, 9, 7, .6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid var(--line-2); border-radius: 999px; padding: 3px 9px; }
+.band { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 16px 0; }
+.brand { font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); min-width: 0; overflow-wrap: anywhere; }
+.off { font: 600 12px var(--f-ui); color: #1b0b03; background: linear-gradient(180deg, #ff9a5c, var(--ember)); padding: 3px 9px; border-radius: 999px; white-space: nowrap; box-shadow: 0 4px 14px -4px rgba(255, 107, 44, .7); }
+.body { padding: 6px 16px 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.line { font-size: 17px; font-weight: 600; letter-spacing: -.02em; line-height: 1.25; }
+.spec { font-family: var(--f-mono); font-size: 12px; color: var(--dim); }
+.tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag { font-size: 11.5px; padding: 3px 9px; border-radius: 999px; background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+.tag.str { color: var(--text); }
+.tag.tier { color: var(--amber-2); border-color: rgba(242, 180, 92, .3); background: rgba(242, 180, 92, .07); }
+.perk { font-size: 13px; color: var(--good); }
+.price-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-top: auto; font-variant-numeric: tabular-nums; }
+.price { font-size: 28px; font-weight: 600; letter-spacing: -.035em; line-height: 1; }
+.msrp { font-family: var(--f-mono); font-size: 13px; color: var(--dim); text-decoration: line-through; }
+.per { font-family: var(--f-mono); font-size: 12px; color: var(--muted); margin-left: auto; }
+.foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-top: 12px; border-top: 1px solid var(--line); }
+.ends { font-family: var(--f-mono); font-size: 11.5px; color: var(--dim); }
+.ends.soon { color: var(--ember); }
+.foot .shop { padding: 9px 14px; font-size: 13px; }
+.empty { grid-column: 1 / -1; border: 1px dashed var(--line-2); border-radius: var(--r); padding: 36px 20px; text-align: center; color: var(--muted); }
+.empty strong { display: block; font-size: 18px; font-weight: 600; letter-spacing: -.02em; color: var(--text); margin-bottom: 4px; }
+.lock { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; padding: 18px 20px; border-radius: var(--r); border: 1px solid rgba(242, 180, 92, .35); background: linear-gradient(100deg, rgba(242, 180, 92, .1), rgba(255, 107, 44, .04)); }
+.lock strong { font-size: 17px; font-weight: 600; letter-spacing: -.02em; }
+.lock .spec { color: var(--muted); }
+
+/* Perfect Match */
+.match { position: relative; overflow: hidden; border-radius: 26px; border: 1px solid var(--line-2); padding: clamp(20px, 4vw, 36px); background: radial-gradient(80% 120% at 100% 0%, rgba(255, 107, 44, .14), transparent 60%), linear-gradient(180deg, var(--surface-2), var(--surface)); display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 80px; }
+.match-intro { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+.match-intro h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.02; margin: 8px 0 8px; text-wrap: balance; }
+.match-intro h2 em { font-family: var(--f-display); font-style: italic; font-weight: 400; color: var(--amber-2); letter-spacing: 0; }
+.match-intro p { margin: 0; color: var(--muted); max-width: 54ch; }
+.qbar { height: 3px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.qbar span { display: block; height: 100%; background: linear-gradient(90deg, var(--amber), var(--ember)); transition: width .3s ease; }
+.qhead { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.qlink { background: none; border: 0; color: var(--muted); font: 500 13px var(--f-ui); cursor: pointer; padding: 4px 0; }
+.qlink:hover { color: var(--text); }
+.qtext { font-size: clamp(1.35rem, 3.6vw, 1.9rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.15; margin: 0; text-wrap: balance; }
+.qopts { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+.qopt { text-align: left; font: 500 15px var(--f-ui); color: var(--text); background: rgba(11, 9, 7, .5); border: 1px solid var(--line-2); border-radius: 14px; padding: 16px 18px; cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+.qopt:hover { border-color: var(--amber); background: rgba(242, 180, 92, .07); }
+.qopt[aria-pressed="true"] { border-color: var(--amber); background: rgba(242, 180, 92, .12); }
+.match-results { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.match-pick { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.match-rank { font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); }
+.why-h { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); margin-top: 2px; }
+.why { margin: 0; padding-left: 18px; font-size: 14px; display: flex; flex-direction: column; gap: 3px; }
+.why li::marker { color: var(--amber); }
+
+/* Local shops */
+.local { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 28px; align-items: center; padding: clamp(20px, 3.5vw, 30px); border-radius: 22px; border: 1px solid var(--line-2); background: linear-gradient(180deg, var(--surface-2), var(--surface)); scroll-margin-top: 80px; }
+.local h2 { font-size: clamp(1.5rem, 3.5vw, 1.9rem); font-weight: 600; letter-spacing: -.035em; margin: 6px 0 4px; }
+.local p { margin: 0; color: var(--muted); }
+.zip-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.zip-row input { font: 500 16px var(--f-mono); letter-spacing: .12em; width: 140px; padding: 11px 16px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(11, 9, 7, .6); color: var(--text); }
+.zip-row input::placeholder { color: var(--dim); letter-spacing: .04em; }
+.zip-row input:focus { border-color: var(--amber); outline: none; box-shadow: 0 0 0 3px rgba(242, 180, 92, .2); }
+.zip-msg { font-size: 13px; color: var(--ember); width: 100%; }
+.zip-msg:empty { display: none; }
+.local-links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 680px) { .local { grid-template-columns: 1fr; } }
+
+/* Plans */
+.plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.plan { position: relative; border-radius: 22px; border: 1px solid var(--line-2); background: linear-gradient(180deg, var(--surface-2), var(--surface)); padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+.plan.pro { border-color: transparent; background: linear-gradient(var(--solid), var(--solid)) padding-box, linear-gradient(140deg, var(--amber-2), var(--ember) 45%, rgba(255, 228, 196, .15)) border-box; box-shadow: 0 30px 70px -40px rgba(255, 107, 44, .6); }
+.plan h3 { margin: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 22px; font-weight: 600; letter-spacing: -.03em; }
+.plan h3 small { font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.plan.pro h3 small { color: var(--amber-2); }
+.plan ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; color: var(--muted); }
+.plan li { padding-left: 24px; position: relative; }
+.plan li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 12px; height: 7px; border-left: 2px solid var(--amber); border-bottom: 2px solid var(--amber); transform: rotate(-45deg); }
+.plan .you { align-self: flex-start; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--good); border: 1px solid rgba(127, 209, 155, .35); border-radius: 999px; padding: 3px 9px; }
+.plan .note { font-size: 13px; color: var(--dim); }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--dim); font-size: 13px; }
+footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 28px; }
+footer p { margin: 0; max-width: 70ch; }
+</style>
+
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <div class="container">
+    <a class="logo" href="#top"><i aria-hidden="true"></i><span>Top Shelf <em>Cigars</em></span></a>
+    <div class="links">
+      <a href="#match">Perfect Match</a>
+      <a href="#singles">Singles</a>
+      <a href="#boxes">Box deals</a>
+      <a href="#shops">Local shops</a>
+      <a href="#pro">Pro</a>
+    </div>
+    <button class="btn btn-primary btn-sm cta" type="button" data-start-match>Find my cigar</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="smoke" aria-hidden="true"></canvas>
+  <div class="container">
+    <div>
+      <span class="pill"><span class="dot" id="dot"></span><span id="checked">Loading prices…</span></span>
+      <h1>The top shelf, <em>for less.</em></h1>
+      <p class="lede">Single cigars from $20 and box deals at 15% off or more, pulled from the best online cigar shops. Answer 20 questions and we'll match you with the one made for you.</p>
+      <div class="actions">
+        <button class="btn btn-primary" type="button" data-start-match>Find my perfect cigar</button>
+        <a class="btn btn-ghost" href="#singles">Browse singles</a>
+      </div>
+    </div>
+    <aside class="stats" aria-label="Today at a glance">
+      <div class="stats-head"><span class="eyebrow">Today on the shelf</span><span id="sources">Checked every hour</span></div>
+      <div class="stats-grid">
+        <div class="stat"><b id="statSingles">–</b><span>single cigars</span></div>
+        <div class="stat"><b id="statBoxes">–</b><span>box deals</span></div>
+        <div class="stat"><b id="statBest">–</b><span>best box discount</span></div>
+        <div class="stat"><b id="statStores">–</b><span>online stores</span></div>
+      </div>
+      <div class="stats-foot">Handmade only · $20+ per cigar · medium to full</div>
+    </aside>
+  </div>
+</header>
+
+<main class="container">
+  <section class="match" id="match" aria-labelledby="match-h">
+    <div class="match-intro" id="quizIntro">
+      <div>
+        <div class="eyebrow">Perfect Match · 20 questions · about 2 minutes</div>
+        <h2 id="match-h">Find the cigar <em>made for you</em></h2>
+        <p>The questions a seasoned tobacconist would ask: strength, wrapper, ring gauge, what you drink, how long you smoke. Then a match with a link to buy it.</p>
+      </div>
+      <button class="btn btn-primary" id="startQuiz" type="button">Start the match</button>
+    </div>
+    <div id="quiz" hidden aria-live="polite"></div>
+  </section>
+
+  <section aria-labelledby="singles-h">
+    <div class="section-h" id="singles">
+      <div><div class="eyebrow">Buy just one</div><h2 id="singles-h">Single <em>cigars</em></h2></div>
+      <p>Top-shelf sticks from $20, cheapest first. Tap any cigar to buy it from the store.</p>
+    </div>
+    <div class="filters" role="toolbar" aria-label="Filter cigars">
+      <div class="fgroup"><span>Strength</span><div class="chips" id="fStrength"></div></div>
+      <div class="fgroup"><span>Tier<b class="pro-tag">PRO</b></span><div class="chips" id="fTier"></div></div>
+      <div class="fgroup"><span>Store<b class="pro-tag">PRO</b></span><label class="sr" for="fStore">Store</label><select id="fStore"><option value="">All stores</option></select></div>
+      <div class="fgroup"><span>Sort<b class="pro-tag">PRO</b></span><label class="sr" for="fSort">Sort</label>
+        <select id="fSort">
+          <option value="pct">Best value</option>
+          <option value="per">Lowest price per cigar</option>
+          <option value="ends">Ending soonest</option>
+          <option value="price">Lowest total price</option>
+        </select>
+      </div>
+      <div class="count" id="count"></div>
+    </div>
+    <div class="grid" id="lineup" aria-live="polite"></div>
+  </section>
+
+  <section aria-labelledby="boxes-h">
+    <div class="section-h" id="boxes">
+      <div><div class="eyebrow">Stock the humidor</div><h2 id="boxes-h">Box <em>deals</em></h2></div>
+      <p>A box only makes this list at 15% or more off its regular price.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="local" id="shops" aria-labelledby="local-h">
+    <div>
+      <div class="eyebrow">Shop local</div>
+      <h2 id="local-h">Find a cigar shop near you</h2>
+      <p>Enter a ZIP code to see cigar shops and lounges around it.</p>
+    </div>
+    <form class="zip-row" id="zipForm" novalidate>
+      <label for="zip" class="sr">ZIP code</label>
+      <input id="zip" inputmode="numeric" maxlength="5" placeholder="ZIP code" autocomplete="postal-code">
+      <button class="btn btn-primary" type="submit">Search</button>
+      <span class="zip-msg" id="zipMsg" role="status"></span>
+    </form>
+    <div class="local-links" id="localLinks" hidden></div>
+  </section>
+
+  <section aria-labelledby="pro-h">
+    <div class="section-h" id="pro">
+      <div><div class="eyebrow">Plans</div><h2 id="pro-h">Free, or go <em>Pro</em></h2></div>
+      <p>Everything you need to find a great cigar is free. Pro shows every deal and every match.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free <small>$0</small></h3>
+        <div class="you" id="youFree" hidden>Your plan</div>
+        <ul>
+          <li>Every single cigar we track</li>
+          <li>The 6 best box deals</li>
+          <li>Your top Perfect Match</li>
+          <li>Local shop finder by ZIP</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <h3>Pro <small>$5 / month</small></h3>
+        <div class="you" id="youPro" hidden>Your plan</div>
+        <ul>
+          <li>Every box deal, refreshed hourly</li>
+          <li>Your top 3 Perfect Matches, with reasons</li>
+          <li>Filter by tier and store, sort by price per cigar</li>
+          <li>"New this hour" flags on fresh deals</li>
+        </ul>
+        <a class="btn btn-primary" id="upgrade" href="#" style="align-self:flex-start">Upgrade to Pro</a>
+        <div class="note" id="upgradeNote"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Prices come from each store's public pages and change often; the store's page is the final word. Handmade cigars of $20 or more per cigar only, boxes only at 15% off or more, no flavored or machine-made cigars.</p>
+    <p>For adults 21 and over.</p>
+  </div>
+</footer>
+
+<script>
+// ── Settings you can change ─────────────────────────────────────────────
+// Paste your Stripe Payment Link for the $5/month Pro plan here.
+// In Stripe, set "After payment" to redirect to: https://YOUR-SITE/?welcome=pro
+const PRO_CHECKOUT_URL = "";
+const FREE_LIMIT = 6;
+// ────────────────────────────────────────────────────────────────────────
+
+const ALLOW_PHOTOS = true;
+
+const WRAPPERS = { Natural: ["#b07a4a", "#8a5a33", "#5e3a1e"], Maduro: ["#6e4127", "#4a2a17", "#2c180c"], Oscuro: ["#4a2c1b", "#2f1b10", "#1a0e07"], Connecticut: ["#c9a06a", "#a67c4c", "#7a5631"] };
+const SVGNS = "http://www.w3.org/2000/svg";
+let artSeq = 0;
+function svgEl(tag, attrs) { const e = document.createElementNS(SVGNS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+function cigarArt(d) {
+  const [lite, mid, dark] = WRAPPERS[d.wrapper] || WRAPPERS.Natural;
+  const id = "w" + (++artSeq);
+  const svg = svgEl("svg", { viewBox: "0 0 340 70", role: "img", "aria-label": d.brand + " " + d.line });
+  const defs = svgEl("defs", {});
+  const g = svgEl("linearGradient", { id, x1: "0", y1: "0", x2: "0", y2: "1" });
+  [["0", lite], ["0.45", mid], ["1", dark]].forEach(([o, c]) => g.appendChild(svgEl("stop", { offset: o, "stop-color": c })));
+  const gb = svgEl("linearGradient", { id: id + "b", x1: "0", y1: "0", x2: "0", y2: "1" });
+  [["0", "#e9c97f"], ["0.5", "#b88a3e"], ["1", "#7a5826"]].forEach(([o, c]) => gb.appendChild(svgEl("stop", { offset: o, "stop-color": c })));
+  defs.append(g, gb); svg.appendChild(defs);
+  svg.appendChild(svgEl("rect", { x: "18", y: "17", width: "300", height: "36", rx: "18", fill: `url(#${id})` }));
+  svg.appendChild(svgEl("rect", { x: "6", y: "19", width: "22", height: "32", rx: "6", fill: "#8f8a84" }));      // ash
+  svg.appendChild(svgEl("rect", { x: "24", y: "19", width: "6", height: "32", fill: "#c8501f", opacity: ".85" })); // ember
+  for (let i = 0; i < 9; i++) svg.appendChild(svgEl("path", { d: `M${50 + i * 26} 18 q 6 17 0 34`, stroke: dark, "stroke-opacity": ".35", fill: "none" }));
+  svg.appendChild(svgEl("rect", { x: "214", y: "16", width: "58", height: "38", rx: "3", fill: `url(#${id}b)` }));
+  svg.appendChild(svgEl("rect", { x: "218", y: "20", width: "50", height: "30", rx: "2", fill: "#2a1b0f" }));
+  const t = svgEl("text", { x: "243", y: "40", "text-anchor": "middle", "font-family": "Bodoni Moda, Georgia, serif", "font-size": "15", "font-weight": "700", fill: "#e9c97f" });
+  t.textContent = (d.brand || "").split(/\s+/).map(w => w[0]).join("").slice(0, 3).toUpperCase();
+  svg.appendChild(t);
+  svg.appendChild(svgEl("path", { d: "M314 22 q 10 13 0 26", stroke: dark, fill: "none", "stroke-width": "2" }));          // cap
+  return svg;
+}
+function artBlock(d, onSale) {
+  const box = el("div", "art");
+  if (ALLOW_PHOTOS && d.image) {
+    const img = document.createElement("img");
+    img.src = d.image; img.alt = d.brand + " " + d.line; img.loading = "lazy"; img.referrerPolicy = "no-referrer";
+    img.addEventListener("error", () => { img.remove(); box.prepend(cigarArt(d)); });
+    box.append(img);
+  } else box.append(cigarArt(d));
+  if (d.wrapper) box.append(el("span", "ribbon", d.wrapper + " wrapper"));
+  return box;
+}
+
+const STRENGTHS = ["All", "Medium", "Medium-Full", "Full"];
+const TIERS = [
+  { key: "All", label: "All" },
+  { key: "Reserve", label: "Reserve $20–30" },
+  { key: "Grand", label: "Grand Reserve $30–50" },
+  { key: "Ultra", label: "Ultra $50+" }
+];
+const state = { deals: [], meta: null, strength: "All", tier: "All", store: "", sort: "pct", loaded: false, error: "", pro: false };
+
+// Pro unlock: Stripe sends paying customers back with ?welcome=pro
+try {
+  const params = new URLSearchParams(location.search);
+  if (params.get("welcome") === "pro") { localStorage.setItem("hw-pro", "1"); history.replaceState(null, "", location.pathname); }
+  state.pro = localStorage.getItem("hw-pro") === "1";
+} catch (_) {}
+
+function tierOf(d) {
+  const per = d.msrp && d.count ? d.msrp / d.count : 0;
+  if (per >= 50) return "Ultra";
+  if (per >= 30) return "Grand";
+  return "Reserve";
+}
+const money = n => "$" + Number(n).toFixed(2);
+function daysLeft(ends) {
+  if (!ends) return null;
+  return Math.ceil((new Date(ends + "T23:59:59") - new Date()) / 86400000);
+}
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function chipGroup(id, items, key) {
+  const box = document.getElementById(id);
+  items.forEach(it => {
+    const k = typeof it === "string" ? it : it.key;
+    const b = el("button", "chip", typeof it === "string" ? it : it.label);
+    b.type = "button";
+    b.setAttribute("aria-pressed", String(state[key] === k));
+    b.addEventListener("click", () => {
+      state[key] = k;
+      box.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(c === b)));
+      render();
+    });
+    box.appendChild(b);
+  });
+}
+chipGroup("fStrength", STRENGTHS, "strength");
+chipGroup("fTier", TIERS, "tier");
+document.getElementById("fStore").addEventListener("change", e => { state.store = e.target.value; render(); });
+document.getElementById("fSort").addEventListener("change", e => { state.sort = e.target.value; render(); });
+
+function applyPlan() {
+  document.getElementById("youPro").hidden = !state.pro;
+  document.getElementById("youFree").hidden = state.pro;
+  document.querySelectorAll("#fTier .chip").forEach(c => c.disabled = !state.pro);
+  document.getElementById("fStore").disabled = !state.pro;
+  document.getElementById("fSort").disabled = !state.pro;
+  document.querySelectorAll(".pro-tag").forEach(t => t.hidden = state.pro);
+  if (!state.pro) { state.tier = "All"; state.store = ""; state.sort = "pct"; document.getElementById("fSort").value = "pct"; }
+  const up = document.getElementById("upgrade"), note = document.getElementById("upgradeNote");
+  up.hidden = state.pro;
+  if (PRO_CHECKOUT_URL) { up.href = PRO_CHECKOUT_URL; up.target = "_blank"; up.rel = "noopener noreferrer"; note.textContent = ""; }
+  else { up.removeAttribute("href"); up.style.opacity = ".55"; up.style.cursor = "default"; note.textContent = "Pro sign-ups open soon."; }
+  render();
+}
+
+function syncStores() {
+  const sel = document.getElementById("fStore");
+  const stores = [...new Set(state.deals.map(d => d.retailer).filter(Boolean))].sort();
+  const cur = sel.value;
+  sel.replaceChildren(el("option", null, "All stores"));
+  sel.firstChild.value = "";
+  stores.forEach(s => { const o = el("option", null, s); o.value = s; sel.appendChild(o); });
+  sel.value = stores.includes(cur) ? cur : "";
+  state.store = sel.value;
+}
+
+function makeCard(d, onSale) {
+  const pct = d.msrp ? (1 - d.price / d.msrp) : 0;
+  const card = el("article", "deal");
+  const band = el("div", "band");
+  band.append(el("div", "brand", d.brand));
+  const p = Math.round(pct * 100);
+  if (onSale && p > 0) band.append(el("span", "off", p + "% off"));
+  const body = el("div", "body");
+  body.append(el("div", "line", d.line));
+  const spec = [d.vitola, d.pack].filter(Boolean).join(" · ");
+  if (spec) body.append(el("div", "spec", spec));
+  const tags = el("div", "tags");
+  if (d.strength) tags.append(el("span", "tag str", d.strength));
+  tags.append(el("span", "tag tier", { Reserve: "Reserve", Grand: "Grand Reserve", Ultra: "Ultra" }[tierOf(d)]));
+  if (d.freeShipping) tags.append(el("span", "tag", "Free shipping"));
+  if (state.pro && onSale && d.firstSeen && Date.now() - new Date(d.firstSeen) < 3600000) tags.append(el("span", "tag tier", "New this hour"));
+  body.append(tags);
+  if (d.perk) body.append(el("div", "perk", "+ " + d.perk));
+  const pr = el("div", "price-row");
+  pr.append(el("span", "price", money(d.price)));
+  if (onSale && d.msrp > d.price) pr.append(el("span", "msrp", money(d.msrp)));
+  if (d.count > 1) pr.append(el("span", "per", money(d.price / d.count) + "/cigar"));
+  else pr.append(el("span", "per", "per cigar"));
+  body.append(pr);
+  const foot = el("div", "foot");
+  let endsText, soon = false;
+  if (onSale) {
+    const dl = daysLeft(d.ends);
+    soon = dl !== null && dl <= 1;
+    endsText = dl === null ? "No end date posted" : dl <= 0 ? "Ends today" : dl === 1 ? "Ends tomorrow" : "Ends " + new Date(d.ends + "T12:00").toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  } else endsText = "Everyday price";
+  const a = el("a", "shop", "Shop at " + d.retailer + " →");
+  a.href = d.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+  foot.append(el("span", "ends" + (soon ? " soon" : ""), endsText), a);
+  body.append(foot);
+  card.append(artBlock(d), band, body);
+  return card;
+}
+
+function emptyBox(title, text) {
+  const e = el("div", "empty"); e.style.gridColumn = "1/-1";
+  e.append(el("strong", null, title), el("span", null, text));
+  return e;
+}
+
+function render() {
+  renderStats();
+  const grid = document.getElementById("grid");
+  const lineup = document.getElementById("lineup");
+  grid.replaceChildren(); lineup.replaceChildren();
+  if (!state.loaded) {
+    grid.append(emptyBox(state.error ? "Deals can't be reached right now" : "Lighting up…", state.error || "Pulling the latest prices from the stores."));
+    document.getElementById("count").textContent = ""; return;
+  }
+  const all = state.deals.filter(d => {
+    const dl = daysLeft(d.ends);
+    if (dl !== null && dl < 0) return false;
+    if (state.strength !== "All" && d.strength !== state.strength) return false;
+    if (state.tier !== "All" && tierOf(d) !== state.tier) return false;
+    if (state.store && d.retailer !== state.store) return false;
+    return true;
+  });
+  const isSingle = d => d.format === "single" || d.count === 1;
+  const isSale = d => !isSingle(d) && d.msrp && d.price <= d.msrp * 0.85;
+  const pct = d => d.msrp ? (1 - d.price / d.msrp) : 0;
+  const sorters = {
+    pct: (a, b) => pct(b) - pct(a),
+    per: (a, b) => a.price / a.count - b.price / b.count,
+    ends: (a, b) => (a.ends || "9999") < (b.ends || "9999") ? -1 : 1,
+    price: (a, b) => a.price - b.price
+  };
+  let sales = all.filter(isSale).sort(sorters[state.sort]);
+  const regular = all.filter(isSingle).sort(state.sort === "pct" || state.sort === "ends" ? sorters.per : sorters[state.sort]);
+  const totalSales = sales.length;
+  const locked = !state.pro && totalSales > FREE_LIMIT ? totalSales - FREE_LIMIT : 0;
+  if (locked) sales = sales.slice(0, FREE_LIMIT);
+  document.getElementById("count").textContent = regular.length + " singles · " + totalSales + " box deals";
+
+  if (!sales.length) grid.append(emptyBox(state.deals.length ? "No box deals match right now" : "No deals on file yet", "Boxes show up here only at 15% off or more. Check back soon."));
+  sales.forEach(d => grid.append(makeCard(d, true)));
+  if (locked) {
+    const box = el("div", "lock");
+    const t = el("div"); t.append(el("strong", null, locked + " more box deal" + (locked === 1 ? "" : "s") + " with Pro"), el("div", "spec", "Every box deal, every store, sorted your way for $5 a month."));
+    const b = el("a", "shop", "See Pro"); b.href = "#upgrade";
+    b.addEventListener("click", e => { e.preventDefault(); document.getElementById("upgrade").scrollIntoView({ behavior: "smooth", block: "center" }); });
+    box.append(t, b); grid.append(box);
+  }
+  if (!regular.length) lineup.append(emptyBox("No singles match those filters", "Try another strength or tier."));
+  regular.forEach(d => lineup.append(makeCard(d, false)));
+}
+
+function renderMeta() {
+  const m = state.meta;
+  const checked = document.getElementById("checked");
+  const dot = document.getElementById("dot");
+  if (!m || !m.lastChecked) { checked.textContent = "Waiting for first check"; return; }
+  const t = new Date(m.lastChecked);
+  const mins = Math.round((Date.now() - t) / 60000);
+  checked.textContent = "Last checked " + (mins < 1 ? "just now" : mins < 60 ? mins + " min ago" : t.toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }));
+  dot.classList.toggle("stale", mins > 150);
+  const ok = (m.sources || []).filter(s => s.ok).length;
+  if (ok) document.getElementById("sources").textContent = ok + " stores · checked every hour";
+}
+
+// ZIP → local shops
+document.getElementById("zipForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const zip = document.getElementById("zip").value.trim();
+  const msg = document.getElementById("zipMsg");
+  const links = document.getElementById("localLinks");
+  if (!/^\d{5}$/.test(zip)) { msg.textContent = "Enter a 5-digit ZIP code."; links.hidden = true; return; }
+  msg.textContent = "";
+  const q = encodeURIComponent("cigar shop near " + zip);
+  const lounge = encodeURIComponent("cigar lounge near " + zip);
+  const items = [
+    ["Cigar shops on Google Maps", "https://www.google.com/maps/search/" + q],
+    ["Cigar lounges on Google Maps", "https://www.google.com/maps/search/" + lounge],
+    ["Apple Maps", "https://maps.apple.com/?q=" + q],
+    ["Yelp reviews", "https://www.yelp.com/search?find_desc=" + encodeURIComponent("Cigar Shops") + "&find_loc=" + zip]
+  ];
+  links.replaceChildren(...items.map(([label, href]) => { const a = el("a", "ghost", label + " ↗"); a.href = href; a.target = "_blank"; a.rel = "noopener noreferrer"; return a; }));
+  links.hidden = false;
+  try { localStorage.setItem("hw-zip", zip); } catch (_) {}
+});
+try { const z = localStorage.getItem("hw-zip"); if (z) document.getElementById("zip").value = z; } catch (_) {}
+
+async function load() {
+  try {
+    const res = await fetch("deals.json?t=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    state.deals = (data.deals || []).filter(d => d.price && d.count && d.url);
+    state.meta = data;
+    state.loaded = true; state.error = "";
+    syncStores(); render(); renderMeta();
+  } catch (err) {
+    if (!state.loaded) { state.error = "Check your connection and refresh the page."; render(); }
+  }
+}
+
+// ── Perfect Match ─────────────────────────────────────────────────────────
+// Tasting profiles for the lines this site tracks (origin, body 1–5, flavor notes 0–3, traits).
+const PROFILES = [
+  { re: /padr[oó]n.*family reserve/i, origin: "Nicaragua", body: 4, notes: { cocoa: 3, coffee: 2, cream: 2, earth: 2, sweet: 2, spice: 1, wood: 1 }, box: true, complex: 3, prestige: 3, finish: "sweet" },
+  { re: /padr[oó]n.*(40th|80 years|special)/i, origin: "Nicaragua", body: 5, notes: { cocoa: 3, coffee: 3, earth: 2, spice: 2, sweet: 1 }, box: true, complex: 3, prestige: 3, finish: "dry" },
+  { re: /padr[oó]n.*1926/i, origin: "Nicaragua", body: 5, notes: { cocoa: 3, coffee: 3, earth: 2, spice: 2, sweet: 1, leather: 1 }, box: true, complex: 3, prestige: 3, finish: "sweet" },
+  { re: /padr[oó]n.*1964/i, origin: "Nicaragua", body: 4, notes: { cocoa: 2, coffee: 2, nut: 2, earth: 2, sweet: 1, wood: 1 }, box: true, complex: 2, prestige: 2, finish: "sweet" },
+  { re: /davidoff.*millennium/i, origin: "Dominican Republic", body: 3, notes: { spice: 2, wood: 2, earth: 1, cream: 1 }, box: false, complex: 3, prestige: 3, finish: "dry" },
+  { re: /ashton/i, origin: "Dominican Republic", body: 4, notes: { wood: 2, spice: 2, cocoa: 1, cream: 1, sweet: 1 }, box: false, complex: 3, prestige: 2, finish: "dry" },
+  { re: /la flor dominicana/i, origin: "Dominican Republic", body: 5, notes: { spice: 3, earth: 2, leather: 2, wood: 1 }, box: false, complex: 2, prestige: 2, finish: "dry" },
+  { re: /atabey/i, origin: "Dominican Republic", body: 3, notes: { cream: 2, sweet: 2, wood: 2, nut: 1 }, box: false, complex: 3, prestige: 3, finish: "sweet" },
+  { re: /garmirian/i, origin: "Dominican Republic", body: 3, notes: { cream: 2, wood: 2, nut: 2, spice: 1 }, box: false, complex: 2, prestige: 2, finish: "dry" },
+  { re: /davidoff.*signature/i, origin: "Dominican Republic", body: 2, notes: { cream: 3, nut: 2, wood: 2, citrus: 2, sweet: 1 }, box: false, complex: 2, prestige: 3, finish: "dry" },
+  { re: /davidoff.*maduro/i, origin: "Dominican Republic", body: 3, notes: { cocoa: 3, sweet: 2, cream: 2, coffee: 1, wood: 1 }, box: false, complex: 2, prestige: 3, finish: "sweet" },
+  { re: /davidoff.*colorado/i, origin: "Dominican Republic", body: 3, notes: { wood: 3, spice: 2, sweet: 2, cream: 1, citrus: 1 }, box: false, complex: 3, prestige: 3, finish: "dry" },
+  { re: /davidoff.*aniversario/i, origin: "Dominican Republic", body: 3, notes: { cream: 2, nut: 2, wood: 2, spice: 1, citrus: 1 }, box: false, complex: 3, prestige: 3, finish: "dry" },
+  { re: /davidoff/i, origin: "Dominican Republic", body: 3, notes: { cream: 2, wood: 2, nut: 1, spice: 1 }, box: false, complex: 2, prestige: 3, finish: "dry" },
+  { re: /diamond crown/i, origin: "Dominican Republic", body: 3, notes: { cocoa: 3, sweet: 3, cream: 2, coffee: 1 }, box: false, complex: 2, prestige: 2, finish: "sweet" },
+  { re: /cohiba.*black/i, origin: "Dominican Republic", body: 4, notes: { cocoa: 3, coffee: 2, sweet: 2, earth: 1 }, box: false, complex: 2, prestige: 3, finish: "sweet" },
+  { re: /cohiba.*riviera/i, origin: "Dominican Republic", body: 3, notes: { cream: 2, nut: 2, wood: 2, sweet: 1 }, box: true, complex: 2, prestige: 3, finish: "dry" },
+  { re: /cohiba.*royale/i, origin: "Dominican Republic", body: 5, notes: { earth: 3, cocoa: 2, spice: 2, coffee: 2, leather: 1 }, box: false, complex: 3, prestige: 3, finish: "dry" },
+  { re: /cohiba.*nicaragua/i, origin: "Nicaragua", body: 5, notes: { spice: 3, earth: 2, leather: 2, coffee: 1 }, box: true, complex: 2, prestige: 2, finish: "dry" },
+  { re: /cohiba/i, origin: "Dominican Republic", body: 3, notes: { cream: 2, wood: 2, nut: 1 }, box: false, complex: 2, prestige: 3, finish: "dry" },
+  { re: /liga privada.*aniversario/i, origin: "Nicaragua", body: 4, notes: { cocoa: 2, coffee: 2, earth: 2, sweet: 2, spice: 1 }, box: false, complex: 3, prestige: 2, finish: "sweet" },
+  { re: /liga privada|h99/i, origin: "Nicaragua", body: 5, notes: { spice: 3, earth: 2, leather: 2, coffee: 1 }, box: false, complex: 2, prestige: 2, finish: "dry" },
+  { re: /montecristo|h\. upmann|romeo|partagas|punch|hoyo/i, origin: "Dominican Republic", body: 3, notes: { wood: 2, cream: 1, spice: 1, nut: 1 }, box: false, complex: 1, prestige: 2, finish: "dry" },
+  { re: /fuente|opus/i, origin: "Dominican Republic", body: 4, notes: { spice: 2, wood: 2, cream: 1, sweet: 1, leather: 1 }, box: false, complex: 3, prestige: 3, finish: "dry" },
+  { re: /my father|oliva|aj fernandez|new world|tatuaje|perdomo/i, origin: "Nicaragua", body: 4, notes: { spice: 2, earth: 2, coffee: 1, cocoa: 1 }, box: false, complex: 2, prestige: 1, finish: "dry" },
+  { re: /.*/, origin: "Other", body: 3, notes: { wood: 1, spice: 1 }, box: false, complex: 1, prestige: 1, finish: "dry" }
+];
+const STRENGTH_NUM = { "Mild": 1, "Medium": 3, "Medium-Full": 4, "Full": 5 };
+const NOTE_WORDS = { cocoa: "cocoa", coffee: "coffee", cream: "cream", nut: "nuts", earth: "earth", spice: "pepper and spice", sweet: "natural sweetness", wood: "cedar", leather: "leather", citrus: "citrus" };
+
+// Each option: label + effects. Effects: str (strength lean), len (length lean), ring, wrap{}, note{}, origin{}, budget, box, complex, prestige, finish
+const QUESTIONS = [
+  { q: "How long have you been smoking premium cigars?", o: [
+    ["Just getting started", { str: -2 }], ["1–3 years", { str: 0 }], ["3–10 years", { str: 1 }], ["10+ years — I know my way around a humidor", { str: 1.5, complex: 1 }]] },
+  { q: "Has a cigar ever left you light-headed or queasy?", o: [
+    ["Yes, more than once", { str: -2 }], ["Once or twice", { str: -0.5 }], ["Never", { str: 1 }]] },
+  { q: "Which strength do you usually reach for?", o: [
+    ["Mild", { str: -3 }], ["Medium", { str: -0.5 }], ["Medium to full", { str: 1 }], ["Full — bring the power", { str: 2.5 }]] },
+  { q: "How much time do you usually have for a smoke?", o: [
+    ["Under 45 minutes", { len: -2 }], ["About an hour", { len: -0.5 }], ["An hour and a half", { len: 1 }], ["Two hours or more", { len: 2 }]] },
+  { q: "What ring gauge feels right in your hand?", o: [
+    ["Slim and elegant (46 or under)", { ring: -2 }], ["Classic (48–52)", { ring: 0 }], ["Big and chunky (54+)", { ring: 2 }], ["No preference", {}]] },
+  { q: "Pick a wrapper color.", o: [
+    ["Light golden (Connecticut)", { wrap: { Connecticut: 3, Natural: 1 }, str: -1 }], ["Medium brown (Natural / Habano)", { wrap: { Natural: 3 } }], ["Dark and oily (Maduro)", { wrap: { Maduro: 3 }, note: { cocoa: 1, sweet: 1 } }], ["Nearly black (Oscuro)", { wrap: { Oscuro: 3, Maduro: 2 }, note: { earth: 1, coffee: 1 } }]] },
+  { q: "How do you take your coffee?", o: [
+    ["Black", { note: { coffee: 2, earth: 1 } }], ["With cream", { note: { cream: 2, nut: 1 } }], ["Espresso", { note: { coffee: 3 }, str: 0.5 }], ["I don't drink coffee", {}]] },
+  { q: "Dark chocolate or milk chocolate?", o: [
+    ["Dark, 70% or more", { note: { cocoa: 3 } }], ["Milk chocolate", { note: { sweet: 2, cream: 1 } }], ["Neither", { note: { wood: 1 } }]] },
+  { q: "Do you like spicy food and cracked black pepper?", o: [
+    ["Yes, the hotter the better", { note: { spice: 3 }, str: 0.5 }], ["A little kick is nice", { note: { spice: 1 } }], ["No, keep it mild", { note: { spice: -2 } }]] },
+  { q: "What's your go-to drink with a cigar?", o: [
+    ["Bourbon", { note: { sweet: 2, wood: 1 } }], ["Peated Scotch", { note: { earth: 2, leather: 1 }, str: 0.5 }], ["Aged rum", { note: { sweet: 2, cocoa: 1 } }], ["Coffee, beer or nothing", {}]] },
+  { q: "Do earthy flavors like leather, mushroom or forest floor appeal to you?", o: [
+    ["Yes", { note: { earth: 2, leather: 2 } }], ["No", { note: { earth: -1, leather: -2 } }]] },
+  { q: "Do you enjoy nutty, creamy, toasty flavors?", o: [
+    ["Yes", { note: { nut: 2, cream: 2 } }], ["No", { note: { cream: -1 } }]] },
+  { q: "Do you like a cigar that changes a lot from start to finish, or one that stays consistent?", o: [
+    ["Changes a lot — I want complexity", { complex: 2 }], ["Consistent from first light to last", { complex: -1 }], ["Either is fine", {}]] },
+  { q: "Box-pressed (square) or round cigars?", o: [
+    ["Box-pressed", { box: 2 }], ["Round", { box: -1 }], ["Doesn't matter", {}]] },
+  { q: "When do you smoke most?", o: [
+    ["Morning or early afternoon", { str: -1, note: { cream: 1 } }], ["Late afternoon", {}], ["After a big dinner", { str: 1, note: { cocoa: 1, coffee: 1 } }], ["Late night", { str: 1.5, note: { earth: 1 } }]] },
+  { q: "Nicaraguan punch, Dominican elegance, or open to anything?", o: [
+    ["Nicaraguan — bold and peppery", { origin: { Nicaragua: 3 } }], ["Dominican — refined and smooth", { origin: { "Dominican Republic": 3 } }], ["Open to anything", {}]] },
+  { q: "Do you retrohale (push smoke out through your nose)?", o: [
+    ["Yes, every cigar", { note: { spice: 1 }, complex: 0.5 }], ["Sometimes", {}], ["No", {}]] },
+  { q: "Sweet finish or dry finish?", o: [
+    ["Sweet, lingering finish", { finish: "sweet", note: { sweet: 2 } }], ["Dry, clean finish", { finish: "dry", note: { wood: 1 } }], ["No preference", {}]] },
+  { q: "How much do you want to spend per cigar?", o: [
+    ["$20–30", { budget: 30 }], ["$30–50", { budget: 50 }], ["$50 and up", { budget: 999, prestige: 1 }], ["Price is no object", { budget: 9999, prestige: 1.5 }]] },
+  { q: "Is this cigar for you or a gift?", o: [
+    ["For me", {}], ["A gift for someone special", { prestige: 2, str: -0.5 }], ["Celebrating a big moment", { prestige: 2.5, complex: 1 }]] }
+];
+
+const quiz = { i: 0, answers: [] };
+function profileOf(d) { const n = d.brand + " " + d.line; return PROFILES.find(p => p.re.test(n)); }
+function sizeOf(d) {
+  const m = /([\d.]+)\s*[×x]\s*(\d+)/.exec(d.vitola || "");
+  return m ? { len: parseFloat(m[1]), ring: parseInt(m[2], 10) } : { len: 5.75, ring: 50 };
+}
+function buildTaste() {
+  const t = { str: 0, len: 0, ring: 0, wrap: {}, note: {}, origin: {}, budget: 9999, box: 0, complex: 0, prestige: 0, finish: null };
+  quiz.answers.forEach((a, qi) => {
+    if (a == null) return;
+    const e = QUESTIONS[qi].o[a][1];
+    ["str", "len", "ring", "box", "complex", "prestige"].forEach(k => { if (e[k]) t[k] += e[k]; });
+    ["wrap", "note", "origin"].forEach(k => { for (const x in (e[k] || {})) t[k][x] = (t[k][x] || 0) + e[k][x]; });
+    if (e.budget) t.budget = e.budget;
+    if (e.finish) t.finish = e.finish;
+  });
+  return t;
+}
+function scoreCigar(d, t) {
+  const p = profileOf(d), s = sizeOf(d), why = [];
+  let score = 0;
+  // Strength: map taste lean (-6..+6) to a 1–5 target.
+  const target = Math.max(1, Math.min(5, 3 + t.str / 2));
+  const have = (STRENGTH_NUM[d.strength] + p.body) / 2;
+  const sGap = Math.abs(target - have);
+  score -= sGap * 4;
+  if (sGap < 0.75) why.push((d.strength || "Its strength") + " strength sits right where you like it");
+  // Size
+  const tLen = 5.75 + t.len * 0.35, tRing = 51 + t.ring * 2.5;
+  score -= Math.abs(s.len - tLen) * 1.5 + Math.abs(s.ring - tRing) * 0.25;
+  if (Math.abs(s.len - tLen) < 0.6) why.push("its " + (d.vitola || "size") + " size fits the time you have");
+  // Wrapper
+  const w = t.wrap[d.wrapper] || 0;
+  score += w;
+  if (w >= 3) why.push("the " + d.wrapper.toLowerCase() + " wrapper you picked");
+  // Flavor notes
+  const hits = [];
+  for (const n in p.notes) { const v = (t.note[n] || 0) * p.notes[n]; score += v * 0.6; if (v >= 4) hits.push(NOTE_WORDS[n]); }
+  if (hits.length) why.push("notes of " + hits.slice(0, 3).join(", ") + " that match your palate");
+  // Origin, finish, construction, character
+  const o = t.origin[p.origin] || 0; score += o;
+  if (o >= 3) why.push(p.origin === "Nicaragua" ? "bold Nicaraguan tobacco" : "refined Dominican tobacco");
+  if (t.finish && t.finish === p.finish) { score += 1.5; why.push("a " + p.finish + " finish"); }
+  score += (p.box ? 1 : -0.3) * t.box;
+  if (t.box > 0 && p.box) why.push("box-pressed, the way you like it");
+  score += (p.complex - 2) * t.complex;
+  if (t.complex > 1 && p.complex >= 3) why.push("a complex blend that evolves as it burns");
+  score += (p.prestige - 2) * t.prestige;
+  if (t.prestige >= 2 && p.prestige >= 3) why.push("a name that makes the moment feel special");
+  // Budget (per cigar)
+  const per = d.price / d.count;
+  if (per > t.budget) score -= 6 + (per - t.budget) / 5; else if (t.budget < 999) why.push(money(per) + " a cigar, inside your budget");
+  if (d.count === 1) { score += 0.75; why.push("sold as a single, so you can try one first"); }
+  else if (d.msrp && d.price <= d.msrp * 0.85) { score += 0.5; why.push(Math.round((1 - d.price / d.msrp) * 100) + "% off the box price right now"); }
+  return { d, score, why };
+}
+
+function renderQuiz() {
+  const box = document.getElementById("quiz");
+  box.replaceChildren();
+  if (quiz.i >= QUESTIONS.length) return renderResults();
+  const Q = QUESTIONS[quiz.i];
+  const bar = el("div", "qbar"); const fill = el("span"); fill.style.width = (quiz.i / QUESTIONS.length * 100) + "%"; bar.append(fill);
+  const head = el("div", "qhead");
+  head.append(el("span", "eyebrow", "Question " + (quiz.i + 1) + " of " + QUESTIONS.length));
+  if (quiz.i > 0) { const back = el("button", "qlink", "← Back"); back.type = "button"; back.addEventListener("click", () => { quiz.i--; renderQuiz(); }); head.append(back); }
+  const q = el("h3", "qtext", Q.q);
+  const opts = el("div", "qopts");
+  Q.o.forEach(([label], oi) => {
+    const b = el("button", "qopt", label); b.type = "button";
+    if (quiz.answers[quiz.i] === oi) b.setAttribute("aria-pressed", "true");
+    b.addEventListener("click", () => { quiz.answers[quiz.i] = oi; quiz.i++; renderQuiz(); });
+    opts.append(b);
+  });
+  box.append(bar, head, q, opts);
+  box.querySelector(".qopt").focus({ preventScroll: true });
+}
+
+function renderResults() {
+  const box = document.getElementById("quiz");
+  const pool = state.deals.filter(d => { const dl = daysLeft(d.ends); return dl === null || dl >= 0; });
+  if (!pool.length) { box.append(emptyBox("No cigars loaded yet", "Try again once the cigar list has loaded.")); return; }
+  const t = buildTaste();
+  const ranked = pool.map(d => scoreCigar(d, t)).sort((a, b) => b.score - a.score);
+  // One pick per line so the runners-up aren't the same cigar in another size.
+  const seen = new Set(), picks = [];
+  for (const r of ranked) { const k = r.d.brand + profileOf(r.d).re; if (seen.has(k)) continue; seen.add(k); picks.push(r); if (picks.length === 3) break; }
+  const head = el("div", "qhead");
+  head.append(el("span", "eyebrow", "Your perfect match"));
+  const again = el("button", "qlink", "Retake the quiz"); again.type = "button";
+  again.addEventListener("click", () => { quiz.i = 0; quiz.answers = []; renderQuiz(); });
+  head.append(again);
+  box.append(head);
+  const show = state.pro ? picks : picks.slice(0, 1);
+  const grid = el("div", "match-results");
+  show.forEach((r, n) => {
+    const wrap = el("div", "match-pick");
+    wrap.append(el("div", "match-rank", n === 0 ? "Best match" : "Also try"));
+    wrap.append(makeCard(r.d, r.d.count > 1 && r.d.msrp && r.d.price <= r.d.msrp * 0.85));
+    const ul = el("ul", "why");
+    (r.why.length ? r.why : ["the closest overall fit to your answers"]).slice(0, 4).forEach(w => ul.append(el("li", null, w)));
+    wrap.append(el("div", "why-h", "Why it fits you"), ul);
+    grid.append(wrap);
+  });
+  box.append(grid);
+  if (!state.pro && picks.length > 1) {
+    const lock = el("div", "lock");
+    const tx = el("div"); tx.append(el("strong", null, "2 more matches with Pro"), el("div", "spec", "See your runner-up cigars and why they fit."));
+    const b = el("a", "shop", "See Pro"); b.href = "#upgrade";
+    b.addEventListener("click", e => { e.preventDefault(); document.getElementById("upgrade").scrollIntoView({ behavior: "smooth", block: "center" }); });
+    lock.append(tx, b); box.append(lock);
+  }
+}
+
+document.getElementById("startQuiz").addEventListener("click", () => {
+  quiz.i = 0; quiz.answers = [];
+  document.getElementById("quizIntro").hidden = true;
+  document.getElementById("quiz").hidden = false;
+  renderQuiz();
+  document.getElementById("match").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+applyPlan();
+load();
+setInterval(load, 10 * 60 * 1000);
+setInterval(renderMeta, 60000);
+
+// ── Hero stats ──
+function renderStats() {
+  if (!state.loaded) return;
+  const live = state.deals.filter(d => { const dl = daysLeft(d.ends); return dl === null || dl >= 0; });
+  const singles = live.filter(d => d.format === "single" || d.count === 1);
+  const boxes = live.filter(d => d.count > 1 && d.msrp && d.price <= d.msrp * 0.85);
+  const best = boxes.reduce((m, d) => Math.max(m, 1 - d.price / d.msrp), 0);
+  document.getElementById("statSingles").textContent = singles.length;
+  document.getElementById("statBoxes").textContent = boxes.length;
+  document.getElementById("statBest").textContent = best ? Math.round(best * 100) + "%" : "–";
+  document.getElementById("statStores").textContent = new Set(live.map(d => d.retailer)).size;
+}
+document.querySelectorAll("[data-start-match]").forEach(b => b.addEventListener("click", () => document.getElementById("startQuiz").click()));
+
+// ── Hero smoke ──
+(function smoke() {
+  const c = document.getElementById("smoke");
+  if (!c || !c.getContext) return;
+  const ctx = c.getContext("2d");
+  const still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let w = 0, h = 0, dpr = 1, puffs = [], running = true, raf = 0;
+  function size() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = c.clientWidth; h = c.clientHeight;
+    c.width = Math.round(w * dpr); c.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function puff(seed) {
+    return { x: w * (0.55 + Math.random() * 0.4), y: seed ? Math.random() * h : h + 40, r: 40 + Math.random() * 90, vy: 0.15 + Math.random() * 0.35, vx: -0.15 + Math.random() * 0.3, a: 0.02 + Math.random() * 0.05, t: Math.random() * 6.28 };
+  }
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of puffs) {
+      p.t += 0.006; p.y -= p.vy; p.x += p.vx + Math.sin(p.t) * 0.25; p.r += 0.12;
+      const fade = Math.min(1, p.y / (h * 0.35));
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+      g.addColorStop(0, `rgba(235, 215, 195, ${p.a * fade})`);
+      g.addColorStop(1, "rgba(235, 215, 195, 0)");
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+      if (p.y + p.r < 0) Object.assign(p, puff(false));
+    }
+  }
+  function loop() { if (!running) return; draw(); raf = requestAnimationFrame(loop); }
+  size();
+  puffs = Array.from({ length: Math.max(14, Math.round(w / 40)) }, () => puff(true));
+  window.addEventListener("resize", size);
+  if (still) { draw(); return; }
+  new IntersectionObserver(([e]) => { running = e.isIntersecting && !document.hidden; cancelAnimationFrame(raf); if (running) loop(); }).observe(c);
+  document.addEventListener("visibilitychange", () => { running = !document.hidden; cancelAnimationFrame(raf); if (running) loop(); });
+  loop();
+})();
+</script>
+</body>
+</html>
