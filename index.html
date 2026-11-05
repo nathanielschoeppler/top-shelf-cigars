@@ -202,6 +202,18 @@ select { font: 500 13px var(--f-ui); padding: 7px 28px 7px 12px; border-radius: 
 .plan .you { align-self: flex-start; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--good); border: 1px solid rgba(127, 209, 155, .35); border-radius: 999px; padding: 3px 9px; }
 .plan .note { font-size: 13px; color: var(--dim); }
 
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 28px 48px; align-items: start; padding: clamp(22px, 4vw, 40px); border-radius: 26px; border: 1px solid var(--line-2); background: radial-gradient(70% 120% at 0% 0%, rgba(242, 180, 92, .1), transparent 60%), linear-gradient(180deg, var(--surface-2), var(--surface)); scroll-margin-top: 80px; }
+.about h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.02; margin: 8px 0 14px; text-wrap: balance; }
+.about h2 em { font-family: var(--f-display); font-style: italic; font-weight: 400; color: var(--amber-2); letter-spacing: 0; }
+.about .from { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.about .from::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 10px var(--ember); }
+.about-text { display: flex; flex-direction: column; gap: 14px; font-size: 16.5px; line-height: 1.65; color: var(--text); max-width: 62ch; }
+.about-text p { margin: 0; }
+.about-text p + p { color: var(--muted); }
+.about-text .sig { font-family: var(--f-display); font-style: italic; font-size: 22px; color: var(--amber-2); }
+@media (max-width: 760px) { .about { grid-template-columns: 1fr; } }
+
 footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--dim); font-size: 13px; }
 footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 28px; }
 footer p { margin: 0; max-width: 70ch; }
@@ -218,6 +230,7 @@ footer p { margin: 0; max-width: 70ch; }
       <a href="#boxes">Box deals</a>
       <a href="#shops">Local shops</a>
       <a href="#pro">Pro</a>
+      <a href="#about">About</a>
     </div>
     <button class="btn btn-primary btn-sm cta" type="button" data-start-match>Find my cigar</button>
   </div>
@@ -304,6 +317,18 @@ footer p { margin: 0; max-width: 70ch; }
       <span class="zip-msg" id="zipMsg" role="status"></span>
     </form>
     <div class="local-links" id="localLinks" hidden></div>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div>
+      <div class="eyebrow">About me</div>
+      <h2 id="about-h">Built by a cigar lover, <em>for the community</em></h2>
+      <span class="from">West Michigan</span>
+    </div>
+    <div class="about-text">
+      <p>I'm a cigar enthusiast from West Michigan who enjoys discovering great cigars, finding the best deals, and sharing those finds with others. I created this app with a simple idea in mind: make it easier for fellow cigar lovers to find great sales, save money, and never miss a good deal.</p>
+      <p>Whether you're a seasoned cigar smoker or just getting into the hobby, I believe great finds are even better when they're shared. This app is built by a cigar enthusiast, for the cigar community.</p>
+    </div>
   </section>
 
   <section aria-labelledby="pro-h">
