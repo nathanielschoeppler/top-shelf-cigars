@@ -1,1 +1,47 @@
-{}
+{
+ "https://atlanticcigar.com/gellis-family-cigars-piece-unique-toro-6x52/": {
+  "strength": "Mild - Medium",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/didier-elie-collection-san-andres-6x60/": {
+  "strength": "Medium - Full",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/didier-jill-collection-habano-maduro-6x60/": {
+  "strength": "Medium - Full",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/didier-micah-collection-sumatra-6x58/": {
+  "strength": "Mild - Medium",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/didier-isaac-collection-connecticut-6x60/": {
+  "strength": "Mild",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/la-aroma-de-cuba-noblesse-monarchy/": {
+  "strength": "Medium - Full",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/montecristo-90th-anniversary-nacional-5-1-2x56/": {
+  "strength": "Medium",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/rocky-patel-dbs-sixty/": {
+  "strength": "Medium",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/rocky-patel-white-label-sixty/": {
+  "strength": "Mild - Medium",
+  "machine": false,
+  "flavored": false
+ }
+}
