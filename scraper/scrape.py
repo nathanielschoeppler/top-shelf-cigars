@@ -319,7 +319,8 @@ SOURCES = [
     ]),
 ]
 
-BRANDS = ["Arturo Fuente", "Fuente", "Padron", "Padrón", "Oliva", "Montecristo", "Romeo y Julieta", "My Father",
+BRANDS = ["Atabey", "Byron", "Didier", "Alfonso", "El Septimo", "La Aroma de Cuba", "Paul Garmirian", "Meerapfel",
+          "Montecristo", "Plasencia", "Cavalier Geneve", "Gellis", "Sobremesa", "Mi Querida", "Arturo Fuente", "Fuente", "Padron", "Padrón", "Oliva", "Montecristo", "Romeo y Julieta", "My Father",
           "Davidoff", "Ashton", "Diesel", "Macanudo", "CAO", "Alec Bradley", "Drew Estate", "Undercrown",
           "Liga Privada", "H. Upmann", "Rocky Patel", "Perdomo", "AJ Fernandez", "New World", "La Flor Dominicana",
           "Tatuaje", "Plasencia", "Camacho", "Punch", "Partagas", "La Gloria Cubana", "Hoyo de Monterrey",
@@ -330,6 +331,7 @@ BRANDS = ["Arturo Fuente", "Fuente", "Padron", "Padrón", "Oliva", "Montecristo"
 
 
 def split_brand(name):
+    name = re.sub(r"\s+", " ", name).strip()
     for b in sorted(BRANDS, key=len, reverse=True):
         if name.lower().startswith(b.lower()):
             rest = name[len(b):].strip(" -–")
@@ -409,6 +411,7 @@ def main():
             if not strength:
                 continue
             brand, line = split_brand(r["name"])
+            brand = {"Padron": "Padrón"}.get(brand, brand)
             did = f"{prefix}-{slug(r['url'].rstrip('/').split('/')[-1].replace('.html', ''))}"
             old = prev_by_id.get(did, {})
             deal = dict(id=did, format="single" if r["count"] == 1 else "box", retailer=store, brand=brand, line=line,
@@ -428,10 +431,14 @@ def main():
         sources.append({"name": store, "ok": ok and kept > 0, "count": kept, "seen": len(raw)})
         log(f"  kept {kept}")
 
-    # Keep recent deals from stores that couldn't be read this run.
-    failed = {s["name"] for s in sources if not s["ok"]}
+    # Keep deals from stores that weren't read successfully this run (or aren't checked automatically).
+    # Hand-picked ("curated") deals stay until a successful read of their store drops them.
+    read_ok = {s["name"] for s in sources if s["ok"]}
     for did, d in prev_by_id.items():
-        if did in found or d.get("retailer") not in failed:
+        if did in found or d.get("retailer") in read_ok:
+            continue
+        if d.get("curated"):
+            found[did] = d
             continue
         if d.get("ends") and d["ends"] < TODAY.isoformat():
             continue
