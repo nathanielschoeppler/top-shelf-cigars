@@ -129,7 +129,7 @@ var BCData = {};
        const decoder = new TextDecoder();
        return decoder.decode(bytes);
     }
-    window.bodl = JSON.parse(decodeBase64("eyJzZXNzaW9uIjp7ImlkIjoiNGFkZjk2NmUtNWYxNS00NzExLTk0NzUtZDBiNzg0NTQ2MGQ2IiwiZmlyc3RfdG91Y2hfdGltZXN0YW1wIjoiMjAyNi0xMS0wNVQxODowMjoxNiIsImZpcnN0X3RvdWNoX3JlZmVycmFsX3VybCI6IiIsImZpcnN0X3RvdWNoX3JlcXVlc3RfdXJsIjoiaHR0cHM6Ly9hdGxhbnRpY2NpZ2FyLmNvbS9jaWdhcnMvYWxsLWNpZ2Fycy8ifSwic2hvcHBlciI6eyJ2aXNpdG9yX2lkIjoiIiwiY3VzdG9tZXJfaWQiOm51bGwsImVtYWlsIjpudWxsLCJmaXJzdF9uYW1lIjpudWxsLCJsYXN0X25hbWUiOm51bGx9LCJkYXRhX2NvbnNlbnQiOnsiZnVuY3Rpb25hbCI6dHJ1ZSwiYW5hbHl0aWNzIjp0cnVlLCJhZHZlcnRpc2luZyI6dHJ1ZX0sImV2ZW50cyI6W3siYm9kbF92MV9wcm9kdWN0X2NhdGVnb3J5X3ZpZXdlZCI6eyJldmVudF9pZCI6IjJkZmYwYzRmLWVlZTUtNDk1NS1iYTNmLTk3MTg4MWI1YzBkNiIsImNoYW5uZWxfaWQiOjEsImNhdGVnb3J5X2lkIjozODAsImNhdGVnb3J5X25hbWUiOiJBbGwgQ2lnYXJzIiwibGluZV9pdGVtcyI6W3sicHJvZHVjdF9pZCI6IjQxOTE2Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJCeXJvbiAxOXRoIENlbnR1cnkgR3JhbmQgUG9lbWFzICg2eDU2KSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjExMzcuNDUsInNhbGVfcHJpY2UiOjExMzcuNDUsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6MTEzNy41LCJxdWFudGl0eSI6MCwiZGlzY291bnQiOjAuMDUsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjowLCJicmFuZF9uYW1lIjoiQnlyb24gMTl0aCBDZW50dXJ5IiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQxOTE3Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJCeXJvbiAyMHRoIENlbnR1cnkgSGFiYW5lcm9zICg2eDU2KSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjExMzcuNDUsInNhbGVfcHJpY2UiOjExMzcuNDUsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6MTEzNy41LCJxdWFudGl0eSI6MCwiZGlzY291bnQiOjAuMDUsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjoxLCJicmFuZF9uYW1lIjoiQnlyb24gMjB0aCBDZW50dXJ5IiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ1ODA1Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJEb24gUGVwaW4gR2FyY2lhIDIwdGggQW5uaXZlcnNhcnkgTEUgMjAyMyBUb3JvIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NTIwLjAsInNhbGVfcHJpY2UiOjUyMC4wLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOjgwMC4wLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOjI4MC4wLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MiwiYnJhbmRfbmFtZSI6IkRvbiBQZXBpbiBHYXJjaWEgMjB0aCBBbm5pdmVyc2FyeSBMRSAyMDIzIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQyNTYyIiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJMYXJzIFRldGVucyBHcmFzcyBCaWcgVG9ycGVkbyAyMC1QYWNrIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6Mjg4LjAsInNhbGVfcHJpY2UiOjI4OC4wLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOjkwMC4wLCJxdWFudGl0eSI6OCwiZGlzY291bnQiOjYxMi4wLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MywiYnJhbmRfbmFtZSI6IkxhcnMgVGV0ZW5zIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjM1OTY1Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJEYXZpZG9mZiBBbml2ZXJzYXJpbyBTZXJpZXMgRG91YmxlIFwiUlwiIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6MTE3MC4wLCJzYWxlX3ByaWNlIjoxMTcwLjAsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6bnVsbCwicXVhbnRpdHkiOjEsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6NCwiYnJhbmRfbmFtZSI6IkRhdmlkb2ZmIEFuaXZlcnNhcmlvIFNlcmllcyIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0NTQ3NyIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiTWVlcmFwZmVsIFJpY2hhcmQgRG91YmxlIFJvYnVzdG8gKDUtMy80eDUyKSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjk3MC4wLCJzYWxlX3ByaWNlIjo5NzAuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjpudWxsLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOm51bGwsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4Ijo1LCJicmFuZF9uYW1lIjoiTWVlcmFwZmVsIFJpY2hhcmQiLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiMzgzMTkiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IkRhdmlkb2ZmIFJveWFsIFNlcmllcyBSb2J1c3RvIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6MTIwMC4wLCJzYWxlX3ByaWNlIjoxMjAwLjAsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6bnVsbCwicXVhbnRpdHkiOjEsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6NiwiYnJhbmRfbmFtZSI6IkRhdmlkb2ZmIFJveWFsIFNlcmllcyIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0NzQ5MiIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiQmFuZG9sZXJvIFByZW1pdW0gQnJhdm9zICg1IDEvNHg1MikiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjo4ODcuNSwic2FsZV9wcmljZSI6ODg3LjUsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6bnVsbCwicXVhbnRpdHkiOjAsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6NywiYnJhbmRfbmFtZSI6IkJhbmRvbGVybyBQcmVtaXVtIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ0MjY5Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJBcnR1cm8gRnVlbnRlIENhc2EgRnVlbnRlIFB5cmFtaWQiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjoxMDQ5LjMxLCJzYWxlX3ByaWNlIjoxMDQ5LjMxLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOm51bGwsInF1YW50aXR5IjowLCJkaXNjb3VudCI6bnVsbCwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjgsImJyYW5kX25hbWUiOiJBcnR1cm8gRnVlbnRlIENhc2EgRnVlbnRlIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ2Nzk2Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJQYWRyb24gTGltaXRlZCBFZGl0aW9ucyA2MHRoIEFubml2ZXJzYXJ5IFBlcmZlY3RvIE1hZHVybyAoNi0xLzJ4NTYpIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NzcuMCwic2FsZV9wcmljZSI6NzcuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjpudWxsLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOm51bGwsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4Ijo5LCJicmFuZF9uYW1lIjoiUGFkcm9uIExpbWl0ZWQgRWRpdGlvbnMiLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDY3OTciLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IlBhZHJvbiBMaW1pdGVkIEVkaXRpb25zIDYwdGggQW5uaXZlcnNhcnkgUGVyZmVjdG8gTmF0dXJhbCAoNi0xLzJ4NTYpIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NzcuMCwic2FsZV9wcmljZSI6NzcuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjpudWxsLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOm51bGwsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjoxMCwiYnJhbmRfbmFtZSI6IlBhZHJvbiBMaW1pdGVkIEVkaXRpb25zIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQxOTEwIiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJBdGFiZXlcdERlbGlyaW91cyAoNSAzLzR4NTUpIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6MTAzNy40NSwic2FsZV9wcmljZSI6MTAzNy40NSwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjoxMDM3LjUsInF1YW50aXR5IjoyMywiZGlzY291bnQiOjAuMDUsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjoxMSwiYnJhbmRfbmFtZSI6IkF0YWJleSIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0NTI5NCIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiQXRhYmV5IFNhYmlvcyAoNS0xLzR4NTIpIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6OTQ5Ljk1LCJzYWxlX3ByaWNlIjo5NDkuOTUsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6OTUwLjAsInF1YW50aXR5IjoyLCJkaXNjb3VudCI6MC4wNSwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjEyLCJicmFuZF9uYW1lIjoiQXRhYmV5IiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQzNTAyIiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJBcnR1cm8gRnVlbnRlIE9wdXNYIEhlYXZlbiBhbmQgRWFydGggRkZPWCBQdXJwbGUgUmFpbiIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjU5NS4wLCJzYWxlX3ByaWNlIjo1OTUuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjpudWxsLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOm51bGwsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjoxMywiYnJhbmRfbmFtZSI6IkFydHVybyBGdWVudGUgT3B1c1ggSGVhdmVuIGFuZCBFYXJ0aCIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0NDI2NiIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiQXJ0dXJvIEZ1ZW50ZSBDYXNhIEZ1ZW50ZSBDaHVyY2hpbGwiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjoxMDE1LjI5LCJzYWxlX3ByaWNlIjoxMDE1LjI5LCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOm51bGwsInF1YW50aXR5IjowLCJkaXNjb3VudCI6bnVsbCwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjE0LCJicmFuZF9uYW1lIjoiQXJ0dXJvIEZ1ZW50ZSBDYXNhIEZ1ZW50ZSIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0NTYyNSIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiTWkgUXVlcmlkYSBCbGFjayBVbmljb3JuIERpYWRlbWEgTEUgKDYgMS80eDYwKSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjU5NS4wLCJzYWxlX3ByaWNlIjo1OTUuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjo3MDAuMCwicXVhbnRpdHkiOjIyLCJkaXNjb3VudCI6MTA1LjAsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjoxNSwiYnJhbmRfbmFtZSI6IkR1bmJhcnRvbiBUb2JhY2NvICYgVHJ1c3QgTWkgUXVlcmlkYSBCbGFjayIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0NTYyNiIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiU29icmVtZXNhIEJydWxlZSBCbHVlIFVuaWNvcm4gTEUgKDYgMS80eDYwKSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjcwMC4wLCJzYWxlX3ByaWNlIjo3MDAuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjpudWxsLCJxdWFudGl0eSI6MjUsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MTYsImJyYW5kX25hbWUiOiJEdW5iYXJ0b24gVG9iYWNjbyAmIFRydXN0IFNvYnJlbWVzYSBCcnVsZWUiLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDc4MDYiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IkNhdmFsaWVyIEdlbmV2ZSBQcm9qZWN0IEJyb2FkbGVhZiBTa3l3YWxrZXIgVG9ybyAoNng0OCkiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjo2NjMuMCwic2FsZV9wcmljZSI6NjYzLjAsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6NzgwLjAsInF1YW50aXR5IjoyOSwiZGlzY291bnQiOjExNy4wLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MTcsImJyYW5kX25hbWUiOiJDYXZhbGllciBHZW5ldmUgTGltaXRlZCBFZGl0aW9uIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ3MjYyIiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJEYXZpZG9mZiBZZWFyIG9mIHRoZSBIb3JzZSAyMDI2ICg2LTEvMng1NSkiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjo2NTAuMCwic2FsZV9wcmljZSI6NjUwLjAsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6bnVsbCwicXVhbnRpdHkiOjAsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MTgsImJyYW5kX25hbWUiOiJEYXZpZG9mZiBMaW1pdGVkIEVkaXRpb25zIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ3ODM5Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJWaWFqZSBPcm8gUmVzZXJ2YSBQZXJmZWN0byAoNS0xLzJ4NTIpIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NjUwLjAsInNhbGVfcHJpY2UiOjY1MC4wLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOm51bGwsInF1YW50aXR5IjowLCJkaXNjb3VudCI6bnVsbCwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjE5LCJicmFuZF9uYW1lIjoiVmlhamUgT3JvIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ3ODQwIiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJWaWFqZSBQbGF0aW5vIFJlc2VydmEgUGVyZmVjdG8gKDUtMS8yeDUyKSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjY1MC4wLCJzYWxlX3ByaWNlIjo2NTAuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjpudWxsLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOm51bGwsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjoyMCwiYnJhbmRfbmFtZSI6IlZpYWplIFBsYXRpbm8iLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDU4NTkiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IkRhdmlkb2ZmIEFuaXZlcnNhcmlvIFNlcmllcyBMRSAyMDIzIE5vLiAxIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NjQwLjAsInNhbGVfcHJpY2UiOjY0MC4wLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOm51bGwsInF1YW50aXR5IjowLCJkaXNjb3VudCI6bnVsbCwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjIxLCJicmFuZF9uYW1lIjoiRGF2aWRvZmYgTGltaXRlZCBFZGl0aW9ucyIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0Nzc2NyIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiUGVyZG9tbyBMZWdhY3kgRmF0aGVyICYgU29uIENvbm5lY3RpY3V0IEdyYW4gRmlndXJhZG8gKEJQKSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjYzNi45OSwic2FsZV9wcmljZSI6NjM2Ljk5LCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOjc1MC4wLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOjExMy4wMSwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjIyLCJicmFuZF9uYW1lIjoiUGVyZG9tbyBMZWdhY3kgRmF0aGVyICYgU29uIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ3NzY4Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJQZXJkb21vIExlZ2FjeSBGYXRoZXIgJiBTb24gTWFkdXJvIEdyYW4gRmlndXJhZG8gKEJQKSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjYzNi45OSwic2FsZV9wcmljZSI6NjM2Ljk5LCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOjc1MC4wLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOjExMy4wMSwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjIzLCJicmFuZF9uYW1lIjoiUGVyZG9tbyBMZWdhY3kgRmF0aGVyICYgU29uIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9XX19XX0="));
+    window.bodl = JSON.parse(decodeBase64("eyJzZXNzaW9uIjp7ImlkIjoiNTVlMTRhYzgtNGVlZS00NTU5LTkzNjAtNTdhNDc3ZDNmMmQ1IiwiZmlyc3RfdG91Y2hfdGltZXN0YW1wIjoiMjAyNi0xMS0wNVQxOTowOTowOSIsImZpcnN0X3RvdWNoX3JlZmVycmFsX3VybCI6IiIsImZpcnN0X3RvdWNoX3JlcXVlc3RfdXJsIjoiaHR0cHM6Ly9hdGxhbnRpY2NpZ2FyLmNvbS9jaWdhcnMvYWxsLWNpZ2Fycy8ifSwic2hvcHBlciI6eyJ2aXNpdG9yX2lkIjoiIiwiY3VzdG9tZXJfaWQiOm51bGwsImVtYWlsIjpudWxsLCJmaXJzdF9uYW1lIjpudWxsLCJsYXN0X25hbWUiOm51bGx9LCJkYXRhX2NvbnNlbnQiOnsiZnVuY3Rpb25hbCI6dHJ1ZSwiYW5hbHl0aWNzIjp0cnVlLCJhZHZlcnRpc2luZyI6dHJ1ZX0sImV2ZW50cyI6W3siYm9kbF92MV9wcm9kdWN0X2NhdGVnb3J5X3ZpZXdlZCI6eyJldmVudF9pZCI6Ijc0YTg2YjcyLTZlMDktNGZjNC1hMjk1LTViY2U1NDA1NDVkMyIsImNoYW5uZWxfaWQiOjEsImNhdGVnb3J5X2lkIjozODAsImNhdGVnb3J5X25hbWUiOiJBbGwgQ2lnYXJzIiwibGluZV9pdGVtcyI6W3sicHJvZHVjdF9pZCI6IjQxOTE3Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJCeXJvbiAyMHRoIENlbnR1cnkgSGFiYW5lcm9zICg2eDU2KSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjExMzcuNDUsInNhbGVfcHJpY2UiOjExMzcuNDUsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6MTEzNy41LCJxdWFudGl0eSI6MCwiZGlzY291bnQiOjAuMDUsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjowLCJicmFuZF9uYW1lIjoiQnlyb24gMjB0aCBDZW50dXJ5IiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ1ODA1Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJEb24gUGVwaW4gR2FyY2lhIDIwdGggQW5uaXZlcnNhcnkgTEUgMjAyMyBUb3JvIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NTIwLjAsInNhbGVfcHJpY2UiOjUyMC4wLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOjgwMC4wLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOjI4MC4wLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MSwiYnJhbmRfbmFtZSI6IkRvbiBQZXBpbiBHYXJjaWEgMjB0aCBBbm5pdmVyc2FyeSBMRSAyMDIzIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQyNTYyIiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJMYXJzIFRldGVucyBHcmFzcyBCaWcgVG9ycGVkbyAyMC1QYWNrIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6Mjg4LjAsInNhbGVfcHJpY2UiOjI4OC4wLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOjkwMC4wLCJxdWFudGl0eSI6OCwiZGlzY291bnQiOjYxMi4wLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MiwiYnJhbmRfbmFtZSI6IkxhcnMgVGV0ZW5zIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjM1OTY1Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJEYXZpZG9mZiBBbml2ZXJzYXJpbyBTZXJpZXMgRG91YmxlIFwiUlwiIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6MTE3MC4wLCJzYWxlX3ByaWNlIjoxMTcwLjAsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6bnVsbCwicXVhbnRpdHkiOjEsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MywiYnJhbmRfbmFtZSI6IkRhdmlkb2ZmIEFuaXZlcnNhcmlvIFNlcmllcyIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0NTQ3NyIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiTWVlcmFwZmVsIFJpY2hhcmQgRG91YmxlIFJvYnVzdG8gKDUtMy80eDUyKSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjk3MC4wLCJzYWxlX3ByaWNlIjo5NzAuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjpudWxsLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOm51bGwsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4Ijo0LCJicmFuZF9uYW1lIjoiTWVlcmFwZmVsIFJpY2hhcmQiLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiMzgzMTkiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IkRhdmlkb2ZmIFJveWFsIFNlcmllcyBSb2J1c3RvIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6MTIwMC4wLCJzYWxlX3ByaWNlIjoxMjAwLjAsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6bnVsbCwicXVhbnRpdHkiOjEsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6NSwiYnJhbmRfbmFtZSI6IkRhdmlkb2ZmIFJveWFsIFNlcmllcyIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0NzQ5MiIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiQmFuZG9sZXJvIFByZW1pdW0gQnJhdm9zICg1IDEvNHg1MikiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjo4ODcuNSwic2FsZV9wcmljZSI6ODg3LjUsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6bnVsbCwicXVhbnRpdHkiOjAsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6NiwiYnJhbmRfbmFtZSI6IkJhbmRvbGVybyBQcmVtaXVtIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ0MjY5Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJBcnR1cm8gRnVlbnRlIENhc2EgRnVlbnRlIFB5cmFtaWQiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjoxMDQ5LjMxLCJzYWxlX3ByaWNlIjoxMDQ5LjMxLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOm51bGwsInF1YW50aXR5IjowLCJkaXNjb3VudCI6bnVsbCwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjcsImJyYW5kX25hbWUiOiJBcnR1cm8gRnVlbnRlIENhc2EgRnVlbnRlIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ2Nzk2Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJQYWRyb24gTGltaXRlZCBFZGl0aW9ucyA2MHRoIEFubml2ZXJzYXJ5IFBlcmZlY3RvIE1hZHVybyAoNi0xLzJ4NTYpIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NzcuMCwic2FsZV9wcmljZSI6NzcuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjpudWxsLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOm51bGwsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4Ijo4LCJicmFuZF9uYW1lIjoiUGFkcm9uIExpbWl0ZWQgRWRpdGlvbnMiLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDY3OTciLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IlBhZHJvbiBMaW1pdGVkIEVkaXRpb25zIDYwdGggQW5uaXZlcnNhcnkgUGVyZmVjdG8gTmF0dXJhbCAoNi0xLzJ4NTYpIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NzcuMCwic2FsZV9wcmljZSI6NzcuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjpudWxsLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOm51bGwsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4Ijo5LCJicmFuZF9uYW1lIjoiUGFkcm9uIExpbWl0ZWQgRWRpdGlvbnMiLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDE5MTAiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IkF0YWJleVx0RGVsaXJpb3VzICg1IDMvNHg1NSkiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjoxMDM3LjQ1LCJzYWxlX3ByaWNlIjoxMDM3LjQ1LCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOjEwMzcuNSwicXVhbnRpdHkiOjIzLCJkaXNjb3VudCI6MC4wNSwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjEwLCJicmFuZF9uYW1lIjoiQXRhYmV5IiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ1Mjk0Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJBdGFiZXkgU2FiaW9zICg1LTEvNHg1MikiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjo5NDkuOTUsInNhbGVfcHJpY2UiOjk0OS45NSwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjo5NTAuMCwicXVhbnRpdHkiOjIsImRpc2NvdW50IjowLjA1LCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MTEsImJyYW5kX25hbWUiOiJBdGFiZXkiLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDM1MDIiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IkFydHVybyBGdWVudGUgT3B1c1ggSGVhdmVuIGFuZCBFYXJ0aCBGRk9YIFB1cnBsZSBSYWluIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NTk1LjAsInNhbGVfcHJpY2UiOjU5NS4wLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOm51bGwsInF1YW50aXR5IjowLCJkaXNjb3VudCI6bnVsbCwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjEyLCJicmFuZF9uYW1lIjoiQXJ0dXJvIEZ1ZW50ZSBPcHVzWCBIZWF2ZW4gYW5kIEVhcnRoIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ0MjY2Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJBcnR1cm8gRnVlbnRlIENhc2EgRnVlbnRlIENodXJjaGlsbCIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjEwMTUuMjksInNhbGVfcHJpY2UiOjEwMTUuMjksImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6bnVsbCwicXVhbnRpdHkiOjAsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MTMsImJyYW5kX25hbWUiOiJBcnR1cm8gRnVlbnRlIENhc2EgRnVlbnRlIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ1NjI1Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJNaSBRdWVyaWRhIEJsYWNrIFVuaWNvcm4gRGlhZGVtYSBMRSAoNiAxLzR4NjApIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NTk1LjAsInNhbGVfcHJpY2UiOjU5NS4wLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOjcwMC4wLCJxdWFudGl0eSI6MjIsImRpc2NvdW50IjoxMDUuMCwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjE0LCJicmFuZF9uYW1lIjoiRHVuYmFydG9uIFRvYmFjY28gJiBUcnVzdCBNaSBRdWVyaWRhIEJsYWNrIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ1NjI2Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJTb2JyZW1lc2EgQnJ1bGVlIEJsdWUgVW5pY29ybiBMRSAoNiAxLzR4NjApIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NzAwLjAsInNhbGVfcHJpY2UiOjcwMC4wLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOm51bGwsInF1YW50aXR5IjoyNSwiZGlzY291bnQiOm51bGwsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjoxNSwiYnJhbmRfbmFtZSI6IkR1bmJhcnRvbiBUb2JhY2NvICYgVHJ1c3QgU29icmVtZXNhIEJydWxlZSIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0NzgwNiIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiQ2F2YWxpZXIgR2VuZXZlIFByb2plY3QgQnJvYWRsZWFmIFNreXdhbGtlciBUb3JvICg2eDQ4KSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjY2My4wLCJzYWxlX3ByaWNlIjo2NjMuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjo3ODAuMCwicXVhbnRpdHkiOjI5LCJkaXNjb3VudCI6MTE3LjAsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjoxNiwiYnJhbmRfbmFtZSI6IkNhdmFsaWVyIEdlbmV2ZSBMaW1pdGVkIEVkaXRpb24iLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDcyNjIiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IkRhdmlkb2ZmIFllYXIgb2YgdGhlIEhvcnNlIDIwMjYgKDYtMS8yeDU1KSIsImdpZnRfY2VydGlmaWNhdGVfaWQiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfbmFtZSI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV90aGVtZSI6bnVsbCwicHVyY2hhc2VfcHJpY2UiOjY1MC4wLCJzYWxlX3ByaWNlIjo2NTAuMCwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjpudWxsLCJxdWFudGl0eSI6MCwiZGlzY291bnQiOm51bGwsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjoxNywiYnJhbmRfbmFtZSI6IkRhdmlkb2ZmIExpbWl0ZWQgRWRpdGlvbnMiLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDc4MzkiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IlZpYWplIE9ybyBSZXNlcnZhIFBlcmZlY3RvICg1LTEvMng1MikiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjo2NTAuMCwic2FsZV9wcmljZSI6NjUwLjAsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6bnVsbCwicXVhbnRpdHkiOjAsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MTgsImJyYW5kX25hbWUiOiJWaWFqZSBPcm8iLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDc4NDAiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IlZpYWplIFBsYXRpbm8gUmVzZXJ2YSBQZXJmZWN0byAoNS0xLzJ4NTIpIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NjUwLjAsInNhbGVfcHJpY2UiOjY1MC4wLCJiYXNlX3ByaWNlIjpudWxsLCJyZXRhaWxfcHJpY2UiOm51bGwsInF1YW50aXR5IjowLCJkaXNjb3VudCI6bnVsbCwiY291cG9uX2Ftb3VudCI6bnVsbCwiaW5kZXgiOjE5LCJicmFuZF9uYW1lIjoiVmlhamUgUGxhdGlubyIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifSx7InByb2R1Y3RfaWQiOiI0NTg1OSIsInNrdSI6bnVsbCwidmFyaWFudF9pZCI6bnVsbCwicHJvZHVjdF9uYW1lIjoiRGF2aWRvZmYgQW5pdmVyc2FyaW8gU2VyaWVzIExFIDIwMjMgTm8uIDEiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjo2NDAuMCwic2FsZV9wcmljZSI6NjQwLjAsImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6bnVsbCwicXVhbnRpdHkiOjAsImRpc2NvdW50IjpudWxsLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MjAsImJyYW5kX25hbWUiOiJEYXZpZG9mZiBMaW1pdGVkIEVkaXRpb25zIiwiY2F0ZWdvcnlfbmFtZXMiOlsiQWxsIENpZ2FycyJdLCJjdXJyZW5jeSI6IlVTRCJ9LHsicHJvZHVjdF9pZCI6IjQ3NzY3Iiwic2t1IjpudWxsLCJ2YXJpYW50X2lkIjpudWxsLCJwcm9kdWN0X25hbWUiOiJQZXJkb21vIExlZ2FjeSBGYXRoZXIgJiBTb24gQ29ubmVjdGljdXQgR3JhbiBGaWd1cmFkbyAoQlApIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NjM2Ljk5LCJzYWxlX3ByaWNlIjo2MzYuOTksImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6NzUwLjAsInF1YW50aXR5IjowLCJkaXNjb3VudCI6MTEzLjAxLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MjEsImJyYW5kX25hbWUiOiJQZXJkb21vIExlZ2FjeSBGYXRoZXIgJiBTb24iLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDc3NjgiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IlBlcmRvbW8gTGVnYWN5IEZhdGhlciAmIFNvbiBNYWR1cm8gR3JhbiBGaWd1cmFkbyAoQlApIiwiZ2lmdF9jZXJ0aWZpY2F0ZV9pZCI6bnVsbCwiZ2lmdF9jZXJ0aWZpY2F0ZV9uYW1lIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX3RoZW1lIjpudWxsLCJwdXJjaGFzZV9wcmljZSI6NjM2Ljk5LCJzYWxlX3ByaWNlIjo2MzYuOTksImJhc2VfcHJpY2UiOm51bGwsInJldGFpbF9wcmljZSI6NzUwLjAsInF1YW50aXR5IjowLCJkaXNjb3VudCI6MTEzLjAxLCJjb3Vwb25fYW1vdW50IjpudWxsLCJpbmRleCI6MjIsImJyYW5kX25hbWUiOiJQZXJkb21vIExlZ2FjeSBGYXRoZXIgJiBTb24iLCJjYXRlZ29yeV9uYW1lcyI6WyJBbGwgQ2lnYXJzIl0sImN1cnJlbmN5IjoiVVNEIn0seyJwcm9kdWN0X2lkIjoiNDc3NjkiLCJza3UiOm51bGwsInZhcmlhbnRfaWQiOm51bGwsInByb2R1Y3RfbmFtZSI6IlBlcmRvbW8gTGVnYWN5IEZhdGhlciAmIFNvbiBTaGFkZS1Hcm93biBHcmFuIEZpZ3VyYWRvIChCUCkiLCJnaWZ0X2NlcnRpZmljYXRlX2lkIjpudWxsLCJnaWZ0X2NlcnRpZmljYXRlX25hbWUiOm51bGwsImdpZnRfY2VydGlmaWNhdGVfdGhlbWUiOm51bGwsInB1cmNoYXNlX3ByaWNlIjo2MzYuOTksInNhbGVfcHJpY2UiOjYzNi45OSwiYmFzZV9wcmljZSI6bnVsbCwicmV0YWlsX3ByaWNlIjo3NTAuMCwicXVhbnRpdHkiOjAsImRpc2NvdW50IjoxMTMuMDEsImNvdXBvbl9hbW91bnQiOm51bGwsImluZGV4IjoyMywiYnJhbmRfbmFtZSI6IlBlcmRvbW8gTGVnYWN5IEZhdGhlciAmIFNvbiIsImNhdGVnb3J5X25hbWVzIjpbIkFsbCBDaWdhcnMiXSwiY3VycmVuY3kiOiJVU0QifV19fV19"));
  })()
 
  </script>
@@ -155,7 +155,7 @@ var BCData = {};
     
     xmlHttp.open('POST', 'https://bes.gcp.data.bigcommerce.com/nobot');
     xmlHttp.setRequestHeader('Content-Type', 'application/json');
-    xmlHttp.send('{"store_id":"999345893","timezone_offset":"-5.0","timestamp":"2026-11-05T18:02:16.98082200Z","visit_id":"21d57dd8-1e10-49a5-b04b-61354af40fe7","channel_id":1}');
+    xmlHttp.send('{"store_id":"999345893","timezone_offset":"-5.0","timestamp":"2026-11-05T19:09:09.74249800Z","visit_id":"ce05a6c5-a185-40d2-b3d8-4930ed3c419c","channel_id":1}');
 })();
 </script>
 
@@ -1104,7 +1104,7 @@ full-width
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Shape=Toro" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Toro
-          <span data-facet-item-count>(1142)</span>
+          <span data-facet-item-count>(1141)</span>
         </a>
       </li>
       <li class="" data-facet-item>
@@ -1167,14 +1167,14 @@ full-width
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Strength=Medium+-+Full" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Medium - Full
-          <span data-facet-item-count>(1968)</span>
+          <span data-facet-item-count>(1967)</span>
         </a>
       </li>
       <li class="" data-facet-item>
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Strength=Medium" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Medium
-          <span data-facet-item-count>(1071)</span>
+          <span data-facet-item-count>(1070)</span>
         </a>
       </li>
       <li class="" data-facet-item>
@@ -1244,7 +1244,7 @@ full-width
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Wrapper+Type=Ecuadorian+Habano" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Ecuadorian Habano
-          <span data-facet-item-count>(74)</span>
+          <span data-facet-item-count>(73)</span>
         </a>
       </li>
       <li class="" data-facet-item>
@@ -1293,14 +1293,14 @@ full-width
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Country+of+Origin=Nicaragua" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Nicaragua
-          <span data-facet-item-count>(2914)</span>
+          <span data-facet-item-count>(2913)</span>
         </a>
       </li>
       <li class="" data-facet-item>
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Country+of+Origin=Dominican+Republic" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Dominican Republic
-          <span data-facet-item-count>(1307)</span>
+          <span data-facet-item-count>(1306)</span>
         </a>
       </li>
       <li class="" data-facet-item>
@@ -1444,7 +1444,7 @@ full-width
   </div>
   <span class="rating-total-score visually-hidden">1</span>
 </div>
-            <span class="rating-count" data-facet-item-count>2010</span>
+            <span class="rating-count" data-facet-item-count>2009</span>
           </a>
         </li>
         <li class="facet-rating" data-facet-item>
@@ -1471,7 +1471,7 @@ full-width
   </div>
   <span class="rating-total-score visually-hidden">2</span>
 </div>
-            <span class="rating-count" data-facet-item-count>2007</span>
+            <span class="rating-count" data-facet-item-count>2006</span>
           </a>
         </li>
         <li class="facet-rating" data-facet-item>
@@ -1498,7 +1498,7 @@ full-width
   </div>
   <span class="rating-total-score visually-hidden">3</span>
 </div>
-            <span class="rating-count" data-facet-item-count>2001</span>
+            <span class="rating-count" data-facet-item-count>2000</span>
           </a>
         </li>
         <li class="facet-rating" data-facet-item>
@@ -1525,7 +1525,7 @@ full-width
   </div>
   <span class="rating-total-score visually-hidden">4</span>
 </div>
-            <span class="rating-count" data-facet-item-count>1972</span>
+            <span class="rating-count" data-facet-item-count>1971</span>
           </a>
         </li>
         <li class="facet-rating" data-facet-item>
@@ -1552,7 +1552,7 @@ full-width
   </div>
   <span class="rating-total-score visually-hidden">5</span>
 </div>
-            <span class="rating-count" data-facet-item-count>1359</span>
+            <span class="rating-count" data-facet-item-count>1358</span>
           </a>
         </li>
   </ul>
@@ -1587,7 +1587,7 @@ full-width
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;in_stock=1" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           In Stock
-          <span data-facet-item-count>(3857)</span>
+          <span data-facet-item-count>(3858)</span>
         </a>
       </li>
   </ul>
@@ -1707,7 +1707,7 @@ full-width
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Shape=Toro" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Toro
-          <span data-facet-item-count>(1142)</span>
+          <span data-facet-item-count>(1141)</span>
         </a>
       </li>
       <li class="" data-facet-item>
@@ -1770,14 +1770,14 @@ full-width
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Strength=Medium+-+Full" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Medium - Full
-          <span data-facet-item-count>(1968)</span>
+          <span data-facet-item-count>(1967)</span>
         </a>
       </li>
       <li class="" data-facet-item>
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Strength=Medium" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Medium
-          <span data-facet-item-count>(1071)</span>
+          <span data-facet-item-count>(1070)</span>
         </a>
       </li>
       <li class="" data-facet-item>
@@ -1847,7 +1847,7 @@ full-width
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Wrapper+Type=Ecuadorian+Habano" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Ecuadorian Habano
-          <span data-facet-item-count>(74)</span>
+          <span data-facet-item-count>(73)</span>
         </a>
       </li>
       <li class="" data-facet-item>
@@ -1896,14 +1896,14 @@ full-width
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Country+of+Origin=Nicaragua" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Nicaragua
-          <span data-facet-item-count>(2914)</span>
+          <span data-facet-item-count>(2913)</span>
         </a>
       </li>
       <li class="" data-facet-item>
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;Country+of+Origin=Dominican+Republic" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           Dominican Republic
-          <span data-facet-item-count>(1307)</span>
+          <span data-facet-item-count>(1306)</span>
         </a>
       </li>
       <li class="" data-facet-item>
@@ -2047,7 +2047,7 @@ full-width
   </div>
   <span class="rating-total-score visually-hidden">1</span>
 </div>
-            <span class="rating-count" data-facet-item-count>2010</span>
+            <span class="rating-count" data-facet-item-count>2009</span>
           </a>
         </li>
         <li class="facet-rating" data-facet-item>
@@ -2074,7 +2074,7 @@ full-width
   </div>
   <span class="rating-total-score visually-hidden">2</span>
 </div>
-            <span class="rating-count" data-facet-item-count>2007</span>
+            <span class="rating-count" data-facet-item-count>2006</span>
           </a>
         </li>
         <li class="facet-rating" data-facet-item>
@@ -2101,7 +2101,7 @@ full-width
   </div>
   <span class="rating-total-score visually-hidden">3</span>
 </div>
-            <span class="rating-count" data-facet-item-count>2001</span>
+            <span class="rating-count" data-facet-item-count>2000</span>
           </a>
         </li>
         <li class="facet-rating" data-facet-item>
@@ -2128,7 +2128,7 @@ full-width
   </div>
   <span class="rating-total-score visually-hidden">4</span>
 </div>
-            <span class="rating-count" data-facet-item-count>1972</span>
+            <span class="rating-count" data-facet-item-count>1971</span>
           </a>
         </li>
         <li class="facet-rating" data-facet-item>
@@ -2155,7 +2155,7 @@ full-width
   </div>
   <span class="rating-total-score visually-hidden">5</span>
 </div>
-            <span class="rating-count" data-facet-item-count>1359</span>
+            <span class="rating-count" data-facet-item-count>1358</span>
           </a>
         </li>
   </ul>
@@ -2190,7 +2190,7 @@ full-width
         <a href="https://atlanticcigar.com/cigars/all-cigars/?sort=pricedesc&amp;_bc_fsnf=1&amp;in_stock=1" rel="nofollow"  data-faceted-search-facet>
           <span class="mobile-facet-checkmark"></span>
           In Stock
-          <span data-facet-item-count>(3857)</span>
+          <span data-facet-item-count>(3858)</span>
         </a>
       </li>
   </ul>
@@ -2405,133 +2405,8 @@ class="
       class="product-item product-item-grid"
       data-product-item
       data-event-type="list"
-      data-entity-id="41916" 
-      data-position="1" 
-      data-name="Byron 19th Century Grand Poemas (6x56)"
-      data-product-category="Cigars, Cigars/All Cigars"
-      data-product-brand="Byron 19th Century"
-      data-product-price="1137.45"
-    >
-      <div class="product-item-content" data-product-item-content> 
-        <figure class="product-item-thumbnail">
-            <a class="product-item-wishlist" href="https://atlanticcigar.com/wishlist.php?action=add&amp;product_id=41916" aria-label="Add Byron 19th Century Grand Poemas (6x56) to wish list">
-              <svg class="normal" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28.012" height="23.224" viewBox="0 0 28.012 23.224">
-                  <g id="wishlist_nostate" transform="translate(-13.75 0.298)">
-                    <path id="Path_6339" data-name="Path 6339" d="M7.144,1.985ZM20.386,0,13.754,4.209,7.122,0,0,4.749v9.218L13.754,22.63l13.754-8.663V4.749Z" transform="translate(14)" fill="#291b0d" stroke="#291b0d" stroke-width="0.5" opacity="0"/>
-                    <path id="wishlist_no_state" data-name="wishlist_no state" d="M20.363,1.985l5.481,3.654v7.409l-12.09,7.616L1.664,13.048V5.639l5.48-3.654,6.61,4.194ZM20.386,0,13.754,4.209,7.122,0,0,4.749v9.218L13.754,22.63l13.754-8.663V4.749Z" transform="translate(14.004)" fill="#291b0d" stroke="#291b0d" stroke-width="0.5"/>
-                  </g>
-                </svg> 
-                <svg class="hover" aria-hidden="true" focusable="false" id="wishlist_no_state" data-name="wishlist_no state" xmlns="http://www.w3.org/2000/svg" width="27.512" height="22.63" viewBox="0 0 27.512 22.63">
-                  <path id="Path_6339" data-name="Path 6339" d="M7.144,1.985ZM20.386,0,13.754,4.209,7.122,0,0,4.749v9.218L13.754,22.63l13.754-8.663V4.749Z" fill="#b50a0d"/>
-                  <path id="Path_6338" data-name="Path 6338" d="M20.363,1.985l5.481,3.654v7.409l-12.09,7.616L1.664,13.048V5.639l5.48-3.654,6.61,4.194ZM20.386,0,13.754,4.209,7.122,0,0,4.749v9.218L13.754,22.63l13.754-8.663V4.749Z" transform="translate(0.004)" fill="#b50a0d"/>
-                </svg>
-            </a>
-        <div class="button_container">
-            <a 
-              class="
-                button
-                button-secondary
-                product-item-quickshop
-                product-item-grid-quickshop
-              "
-              href="https://atlanticcigar.com/byron-19th-century-grand-poemas-6x56/"
-              data-quick-shop="view"
-              data-product-id="41916"
-            >
-              Quick View
-            </a>
-          
-            <div class="alert alert-error">
-  
-
-  <div class="alert-message">
-      Out of Stock
-  </div>
-</div>
-          
-            
-        </div>
-    
-        <a
-            class="product-item-image"
-            href="https://atlanticcigar.com/byron-19th-century-grand-poemas-6x56/"
-            aria-hidden="true"
-            tabindex="-1"
-          >
-            <img
-    src="https://cdn11.bigcommerce.com/s-2ooutu2zpl/images/stencil/160w/products/41916/57388/Byron_19th_Century_Grand_Poemas_Box__58893.1719850185.jpg?c=2"
-    alt="Byron 19th Century Grand Poemas Box"
-    data-sizes="auto"
-        srcset="https://cdn11.bigcommerce.com/s-2ooutu2zpl/images/stencil/80w/products/41916/57388/Byron_19th_Century_Grand_Poemas_Box__58893.1719850185.jpg?c=2"
-  data-srcset="https://cdn11.bigcommerce.com/s-2ooutu2zpl/images/stencil/80w/products/41916/57388/Byron_19th_Century_Grand_Poemas_Box__58893.1719850185.jpg?c=2 80w, https://cdn11.bigcommerce.com/s-2ooutu2zpl/images/stencil/160w/products/41916/57388/Byron_19th_Century_Grand_Poemas_Box__58893.1719850185.jpg?c=2 160w, https://cdn11.bigcommerce.com/s-2ooutu2zpl/images/stencil/320w/products/41916/57388/Byron_19th_Century_Grand_Poemas_Box__58893.1719850185.jpg?c=2 320w, https://cdn11.bigcommerce.com/s-2ooutu2zpl/images/stencil/640w/products/41916/57388/Byron_19th_Century_Grand_Poemas_Box__58893.1719850185.jpg?c=2 640w, https://cdn11.bigcommerce.com/s-2ooutu2zpl/images/stencil/960w/products/41916/57388/Byron_19th_Century_Grand_Poemas_Box__58893.1719850185.jpg?c=2 960w, https://cdn11.bigcommerce.com/s-2ooutu2zpl/images/stencil/1280w/products/41916/57388/Byron_19th_Century_Grand_Poemas_Box__58893.1719850185.jpg?c=2 1280w, https://cdn11.bigcommerce.com/s-2ooutu2zpl/images/stencil/1920w/products/41916/57388/Byron_19th_Century_Grand_Poemas_Box__58893.1719850185.jpg?c=2 1920w, https://cdn11.bigcommerce.com/s-2ooutu2zpl/images/stencil/2560w/products/41916/57388/Byron_19th_Century_Grand_Poemas_Box__58893.1719850185.jpg?c=2 2560w"
-  
-  class="lazyload"
-  style="object-fit: contain;"
-  
-/>
-          </a>
-        </figure>
-        <div class="product-item-details">
-          <h2 class="product-item-title">
-            <a href="https://atlanticcigar.com/byron-19th-century-grand-poemas-6x56/">Byron 19th Century Grand Poemas (6x56)</a>
-          </h2>
-        
-        
-        <div class="product-item-price ots 0  Out of Stock">
-              <div class="product-item-price">
-                    <div
-  class="
-    price
-  "
->
-    <div class="price-withouttax" data-product-price-wrapper="without-tax">
-      <!--   -->
-        
-      <span data-product-price-without-tax class="price price-without-tax">
-        $45.50 - $1,137.45
-      </span>
-    </div>
-
-  <span class="price-saved" data-product-price-saved></span>
-</div>
-
-<script>
-
-setInterval(function() {
-    var priceWithoutTaxText = $('.product-detail-container .price .price-rrp').text();
-    var nonSalePriceText = $('.product-detail-container .price .price-value').text();
-
-    var priceWithoutTax = parseFloat(priceWithoutTaxText.replace(/[^\d.]/g, ''));
-    var nonSalePrice = parseFloat(nonSalePriceText.replace(/[^\d.]/g, ''));
-
-    var percentSaving = ((priceWithoutTax - nonSalePrice) / priceWithoutTax) * 100;
-    var percentage = Math.round(percentSaving);
-
-    if (!isNaN(percentage)) {
-        $('.product-detail-container .price-saved').text('Save ' + percentage + '%');
-    }
-}, 50);
-</script>
-              </div>
-          </div>
-        
-            <div class="product-item-summary">
-                
-Byron 19th & 20th Century Cigars by Nelson Alfonso
-Byron comes to you from Nelson Alfonso who does a lot of packaging for some of the top Cuban cigars on the market today. The man behind the...
-            </div>
-          
-        </div>
-      </div>
-    </article>
-</div>
-            <div class="slide_outer">
-    <article
-      class="product-item product-item-grid"
-      data-product-item
-      data-event-type="list"
       data-entity-id="41917" 
-      data-position="2" 
+      data-position="1" 
       data-name="Byron 20th Century Habaneros (6x56)"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Byron 20th Century"
@@ -2656,7 +2531,7 @@ Byron comes to you from Nelson Alfonso who does a lot of packaging for some of t
       data-product-item
       data-event-type="list"
       data-entity-id="45805" 
-      data-position="3" 
+      data-position="2" 
       data-name="Don Pepin Garcia 20th Anniversary LE 2023 Toro"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Don Pepin Garcia 20th Anniversary LE 2023"
@@ -2780,7 +2655,7 @@ Don Pepin Garcia 20th Anniversary L.E. 2023 Toro Cigars are an achievement in lu
       data-product-item
       data-event-type="list"
       data-entity-id="42562" 
-      data-position="4" 
+      data-position="3" 
       data-name="Lars Tetens Grass Big Torpedo 20-Pack"
       data-product-category="Cigars, Cigars/All Cigars, Cigars/Flavored &amp; Infused Cigars"
       data-product-brand="Lars Tetens"
@@ -2934,7 +2809,7 @@ Lars Tetens are back! One of our best-selling brands, these conditioned cigars a
       data-product-item
       data-event-type="list"
       data-entity-id="35965" 
-      data-position="5" 
+      data-position="4" 
       data-name="Davidoff Aniversario Series Double &quot;R&quot;"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Davidoff Aniversario Series"
@@ -3069,7 +2944,7 @@ setInterval(function() {
       data-product-item
       data-event-type="list"
       data-entity-id="45477" 
-      data-position="6" 
+      data-position="5" 
       data-name="Meerapfel Richard Double Robusto (5-3/4x52)"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Meerapfel Richard"
@@ -3194,7 +3069,7 @@ The Meerapfel Richard cigar pays homage to Richard Meerapfel, President Jeremiah
       data-product-item
       data-event-type="list"
       data-entity-id="38319" 
-      data-position="7" 
+      data-position="6" 
       data-name="Davidoff Royal Series Robusto"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Davidoff Royal Series"
@@ -3331,7 +3206,7 @@ Davidoff Royal Series Cigars are small production cigar line that's expertly and
       data-product-item
       data-event-type="list"
       data-entity-id="47492" 
-      data-position="8" 
+      data-position="7" 
       data-name="Bandolero Premium Bravos (5 1/4x52)"
       data-product-category="Cigars, Cigars/All Cigars, Cigars/What&#x27;s New"
       data-product-brand="Bandolero Premium"
@@ -3456,7 +3331,7 @@ Selected Tobacco S.A. elevates its legendary Bandolero line with Bandolero Premi
       data-product-item
       data-event-type="list"
       data-entity-id="44269" 
-      data-position="9" 
+      data-position="8" 
       data-name="Arturo Fuente Casa Fuente Pyramid"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Arturo Fuente Casa Fuente"
@@ -3580,7 +3455,7 @@ The Arturo Fuente Casa Fuente cigars could only be purchased at the Casa Fuente 
       data-product-item
       data-event-type="list"
       data-entity-id="46796" 
-      data-position="10" 
+      data-position="9" 
       data-name="Padron Limited Editions 60th Anniversary Perfecto Maduro (6-1/2x56)"
       data-product-category="Cigars, Cigars/All Cigars, Padron Cigars"
       data-product-brand="Padron Limited Editions"
@@ -3704,7 +3579,7 @@ Limited in production, the 60th Anniversary cigar celebrates Padron’s six deca
       data-product-item
       data-event-type="list"
       data-entity-id="46797" 
-      data-position="11" 
+      data-position="10" 
       data-name="Padron Limited Editions 60th Anniversary Perfecto Natural (6-1/2x56)"
       data-product-category="Cigars, Cigars/All Cigars, Padron Cigars"
       data-product-brand="Padron Limited Editions"
@@ -3828,7 +3703,7 @@ Limited in production, the 60th Anniversary cigar celebrates Padron’s six deca
       data-product-item
       data-event-type="list"
       data-entity-id="41910" 
-      data-position="12" 
+      data-position="11" 
       data-name="Atabey	Delirious (5 3/4x55)"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Atabey"
@@ -3965,7 +3840,7 @@ The name Atabey has ties to the Taino Indians and the cigar culture.  It all be
       data-product-item
       data-event-type="list"
       data-entity-id="45294" 
-      data-position="13" 
+      data-position="12" 
       data-name="Atabey Sabios (5-1/4x52)"
       data-product-category="Cigars, Cigars/What&#x27;s New, Cigars/All Cigars"
       data-product-brand="Atabey"
@@ -4102,7 +3977,7 @@ The name Atabey has ties to the Taino Indians and the cigar culture.  It all be
       data-product-item
       data-event-type="list"
       data-entity-id="43502" 
-      data-position="14" 
+      data-position="13" 
       data-name="Arturo Fuente OpusX Heaven and Earth FFOX Purple Rain"
       data-product-category="Cigars, Cigars/All Cigars, Cigars/Limited Edition Cigars"
       data-product-brand="Arturo Fuente OpusX Heaven and Earth"
@@ -4227,7 +4102,7 @@ We are proud to present Fuente Fuente OpusX Serie "Heaven and Earth" Purple Rain
       data-product-item
       data-event-type="list"
       data-entity-id="44266" 
-      data-position="15" 
+      data-position="14" 
       data-name="Arturo Fuente Casa Fuente Churchill"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Arturo Fuente Casa Fuente"
@@ -4351,7 +4226,7 @@ The Arturo Fuente Casa Fuente cigars could only be purchased at the Casa Fuente 
       data-product-item
       data-event-type="list"
       data-entity-id="45625" 
-      data-position="16" 
+      data-position="15" 
       data-name="Mi Querida Black Unicorn Diadema LE (6 1/4x60)"
       data-product-category="Cigars, Cigars/What&#x27;s New, Cigars/All Cigars"
       data-product-brand="Dunbarton Tobacco &amp; Trust Mi Querida Black"
@@ -4488,7 +4363,7 @@ If you love Steve Saka’s blends, this is a limited edition treat you need to p
       data-product-item
       data-event-type="list"
       data-entity-id="45626" 
-      data-position="17" 
+      data-position="16" 
       data-name="Sobremesa Brulee Blue Unicorn LE (6 1/4x60)"
       data-product-category="Cigars, Cigars/What&#x27;s New, Cigars/All Cigars"
       data-product-brand="Dunbarton Tobacco &amp; Trust Sobremesa Brulee"
@@ -4625,7 +4500,7 @@ If you love Steve Saka’s blends, this is a limited edition treat you need to p
       data-product-item
       data-event-type="list"
       data-entity-id="47806" 
-      data-position="18" 
+      data-position="17" 
       data-name="Cavalier Geneve Project Broadleaf Skywalker Toro (6x48)"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Cavalier Geneve Limited Edition"
@@ -4761,7 +4636,7 @@ The Cavalier Genève Project Broadleaf Skywalker Toro (6 x 48) returns, bringing
       data-product-item
       data-event-type="list"
       data-entity-id="47262" 
-      data-position="19" 
+      data-position="18" 
       data-name="Davidoff Year of the Horse 2026 (6-1/2x55)"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Davidoff Limited Editions"
@@ -4886,7 +4761,7 @@ Celebrate the elegance and strength of the Chinese zodiac with the Davidoff Year
       data-product-item
       data-event-type="list"
       data-entity-id="47839" 
-      data-position="20" 
+      data-position="19" 
       data-name="Viaje Oro Reserva Perfecto (5-1/2x52)"
       data-product-category="Cigars, Cigars/What&#x27;s New, Cigars/All Cigars"
       data-product-brand="Viaje Oro"
@@ -5011,7 +4886,7 @@ The Viaje Oro Reserva Perfecto marks the return of a highly sought-after boutiqu
       data-product-item
       data-event-type="list"
       data-entity-id="47840" 
-      data-position="21" 
+      data-position="20" 
       data-name="Viaje Platino Reserva Perfecto (5-1/2x52)"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Viaje Platino"
@@ -5136,7 +5011,7 @@ The Viaje Platino Reserva Perfecto brings back one of Viaje’s most coveted bou
       data-product-item
       data-event-type="list"
       data-entity-id="45859" 
-      data-position="22" 
+      data-position="21" 
       data-name="Davidoff Aniversario Series LE 2023 No. 1"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Davidoff Limited Editions"
@@ -5261,7 +5136,7 @@ Davidoff's brand history is rich in exceptional cigar innovations and iconic ach
       data-product-item
       data-event-type="list"
       data-entity-id="47767" 
-      data-position="23" 
+      data-position="22" 
       data-name="Perdomo Legacy Father &amp; Son Connecticut Gran Figurado (BP)"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Perdomo Legacy Father &amp; Son"
@@ -5380,7 +5255,7 @@ The Perdomo Legacy Father & Son Collaboration cigar line marks the first limited
       data-product-item
       data-event-type="list"
       data-entity-id="47768" 
-      data-position="24" 
+      data-position="23" 
       data-name="Perdomo Legacy Father &amp; Son Maduro Gran Figurado (BP)"
       data-product-category="Cigars, Cigars/All Cigars"
       data-product-brand="Perdomo Legacy Father &amp; Son"
@@ -5487,6 +5362,125 @@ setInterval(function() {
             <div class="product-item-summary">
                 Perdomo Legacy Father & Son Maduro Gran Figurado (BP) Cigars (6x48x60x52)
 The Perdomo Legacy Father & Son Collaboration cigar line marks the first limited edition set from Perdomo family, featuring...
+            </div>
+          
+        </div>
+      </div>
+    </article>
+</div>
+            <div class="slide_outer">
+    <article
+      class="product-item product-item-grid"
+      data-product-item
+      data-event-type="list"
+      data-entity-id="47769" 
+      data-position="24" 
+      data-name="Perdomo Legacy Father &amp; Son Shade-Grown Gran Figurado (BP)"
+      data-product-category="Cigars, Cigars/All Cigars"
+      data-product-brand="Perdomo Legacy Father &amp; Son"
+      data-product-price="636.99"
+    >
+      <div class="product-item-content" data-product-item-content> 
+        <figure class="product-item-thumbnail">
+            <a class="product-item-wishlist" href="https://atlanticcigar.com/wishlist.php?action=add&amp;product_id=47769" aria-label="Add Perdomo Legacy Father &amp; Son Shade-Grown Gran Figurado (BP) to wish list">
+              <svg class="normal" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28.012" height="23.224" viewBox="0 0 28.012 23.224">
+                  <g id="wishlist_nostate" transform="translate(-13.75 0.298)">
+                    <path id="Path_6339" data-name="Path 6339" d="M7.144,1.985ZM20.386,0,13.754,4.209,7.122,0,0,4.749v9.218L13.754,22.63l13.754-8.663V4.749Z" transform="translate(14)" fill="#291b0d" stroke="#291b0d" stroke-width="0.5" opacity="0"/>
+                    <path id="wishlist_no_state" data-name="wishlist_no state" d="M20.363,1.985l5.481,3.654v7.409l-12.09,7.616L1.664,13.048V5.639l5.48-3.654,6.61,4.194ZM20.386,0,13.754,4.209,7.122,0,0,4.749v9.218L13.754,22.63l13.754-8.663V4.749Z" transform="translate(14.004)" fill="#291b0d" stroke="#291b0d" stroke-width="0.5"/>
+                  </g>
+                </svg> 
+                <svg class="hover" aria-hidden="true" focusable="false" id="wishlist_no_state" data-name="wishlist_no state" xmlns="http://www.w3.org/2000/svg" width="27.512" height="22.63" viewBox="0 0 27.512 22.63">
+                  <path id="Path_6339" data-name="Path 6339" d="M7.144,1.985ZM20.386,0,13.754,4.209,7.122,0,0,4.749v9.218L13.754,22.63l13.754-8.663V4.749Z" fill="#b50a0d"/>
+                  <path id="Path_6338" data-name="Path 6338" d="M20.363,1.985l5.481,3.654v7.409l-12.09,7.616L1.664,13.048V5.639l5.48-3.654,6.61,4.194ZM20.386,0,13.754,4.209,7.122,0,0,4.749v9.218L13.754,22.63l13.754-8.663V4.749Z" transform="translate(0.004)" fill="#b50a0d"/>
+                </svg>
+            </a>
+        <div class="button_container">
+            <a 
+              class="
+                button
+                button-secondary
+                product-item-quickshop
+                product-item-grid-quickshop
+              "
+              href="https://atlanticcigar.com/perdomo-legacy-father-son-shade-grown-gran-figurado-bp/"
+              data-quick-shop="view"
+              data-product-id="47769"
+            >
+              Quick View
+            </a>
+          
+            <div class="alert alert-error">
+  
+
+  <div class="alert-message">
+      Out of Stock
+  </div>
+</div>
+          
+            
+        </div>
+    
+        <a
+            class="product-item-image"
+            href="https://atlanticcigar.com/perdomo-legacy-father-son-shade-grown-gran-figurado-bp/"
+            aria-hidden="true"
+            tabindex="-1"
+          >
+            <img
+src="https://cdn11.bigcommerce.com/s-2ooutu2zpl/stencil/1da84950-7f0d-013f-8112-76000fb6a53d/e/05a2fe30-b9e7-013f-c862-266fcbefbcb7/img/no-image.svg" alt=""
+  class="lazyload"
+  style="object-fit: contain;"
+  
+/>
+          </a>
+        </figure>
+        <div class="product-item-details">
+          <h2 class="product-item-title">
+            <a href="https://atlanticcigar.com/perdomo-legacy-father-son-shade-grown-gran-figurado-bp/">Perdomo Legacy Father &amp; Son Shade-Grown Gran Figurado (BP)</a>
+          </h2>
+        
+        
+        <div class="product-item-price ots 0  Out of Stock">
+              <div class="product-item-price">
+                    <div
+  class="
+    price
+  "
+>
+    <div class="price-withouttax" data-product-price-wrapper="without-tax">
+      <!--   -->
+        
+      <span data-product-price-without-tax class="price price-without-tax">
+        $13.50 - $636.99
+      </span>
+    </div>
+
+  <span class="price-saved" data-product-price-saved></span>
+</div>
+
+<script>
+
+setInterval(function() {
+    var priceWithoutTaxText = $('.product-detail-container .price .price-rrp').text();
+    var nonSalePriceText = $('.product-detail-container .price .price-value').text();
+
+    var priceWithoutTax = parseFloat(priceWithoutTaxText.replace(/[^\d.]/g, ''));
+    var nonSalePrice = parseFloat(nonSalePriceText.replace(/[^\d.]/g, ''));
+
+    var percentSaving = ((priceWithoutTax - nonSalePrice) / priceWithoutTax) * 100;
+    var percentage = Math.round(percentSaving);
+
+    if (!isNaN(percentage)) {
+        $('.product-detail-container .price-saved').text('Save ' + percentage + '%');
+    }
+}, 50);
+</script>
+              </div>
+          </div>
+        
+            <div class="product-item-summary">
+                Perdomo Legacy Father & Son Shade-Grown Gran Figurado (BP) Cigars (6x48x60x52)
+The Perdomo Legacy Father & Son Collaboration cigar line marks the first limited edition set from Perdomo family,...
             </div>
           
         </div>
@@ -6314,199 +6308,6 @@ var mypagetype = 'category';
 var customid = '';
 
 var customname = '';
-
-        var starbCSSClass = starbCSSClass;
-var isStartbShowBadge = false;
-if(starbCSSClass == undefined ){
-
-    starbCSSClass = "";    
-}
-
-var starbStyle = starbStyle;
-
-if(starbStyle == undefined ){
-
-    starbStyle = "";    
-}
-
-var starbProduct          = "";
-var starbMaxDisplayBadge  = 5;
-
-if(starbMaxDisplayBadge == undefined ){
-
-    starbStyle = 1;    
-}
-
-var categoryclass = "3";
-var categoryclass2 = "3";
-var categoryclass3 = "3";
-
-
-var starbBadgeCounter     = 1;
-var starbCreatedDateSec     = "2019-12-24";
-
-if(starbCreatedDateSec == undefined ){
-
-    starbCreatedDateSec = "";    
-}
-
-var starbDateDiff = "3";
-
-var starbProductDate = new Date(''),
-    starbCurrentDate   = new Date(),
-    starbdiff  = new Date(starbCurrentDate - starbProductDate),
-    starbDateDiff  = starbdiff/1000;
-
-
-
-var suprInventory        = null;
-var suprprice    = 0;
-var suprcompareprice    = 0;
-var suprAmountDiscountprice   = 0;
-var suprPercentDiscount   = 0
-var suprInventorySellout = 0;
-var starbProdudctid = 41916;
-var starbCollectionId = 'Cigars,Cigars/All Cigars';
-var suprCustomerGroup = '';
-
-suprCustomerGroup = "";
-
-
-
-
-
-
-
-
-if(suprprice == 0){
-if(1137.45 != ''){
-    var suprprice    = 1137.45;
-}
-
-
-
-}
-
-
-
-if(0.05 != ''){
-    var suprsaved   = 0.05;
-    var suprcompareprice = suprprice+suprsaved;
-}
-
-if(suprcompareprice != 0){
-suprPercentDiscount = ((suprcompareprice-suprprice)/suprcompareprice)*100;
-}
-
-var bulkdiscountrates = 0;
-
-
-var preorder = 0;
-
-
-
-var customfieldnametxt  = '';
-var customfieldvaluetxt = '';
-var customfieldnames = [];
-var customfieldvalues = [];
-    customfieldnametxt +=  'Shape';
-    customfieldvaluetxt +=  `Toro`;
-    customfieldnames.push('Shape');
-    customfieldvalues.push(`Toro`);
-    customfieldnametxt +=  'Size';
-    customfieldvaluetxt +=  `6 x 56`;
-    customfieldnames.push('Size');
-    customfieldvalues.push(`6 x 56`);
-    customfieldnametxt +=  'Strength';
-    customfieldvaluetxt +=  `Medium - Full`;
-    customfieldnames.push('Strength');
-    customfieldvalues.push(`Medium - Full`);
-    customfieldnametxt +=  'Wrapper';
-    customfieldvaluetxt +=  `Ecuadorian Habano`;
-    customfieldnames.push('Wrapper');
-    customfieldvalues.push(`Ecuadorian Habano`);
-    customfieldnametxt +=  'Binder / Filler';
-    customfieldvaluetxt +=  `Proprietary / Proprietary, Nicaragua`;
-    customfieldnames.push('Binder / Filler');
-    customfieldvalues.push(`Proprietary / Proprietary, Nicaragua`);
-    customfieldnametxt +=  'Color';
-    customfieldvaluetxt +=  `Colorado`;
-    customfieldnames.push('Color');
-    customfieldvalues.push(`Colorado`);
-    customfieldnametxt +=  'Grade';
-    customfieldvaluetxt +=  `Hand Rolled / Long Filler`;
-    customfieldnames.push('Grade');
-    customfieldvalues.push(`Hand Rolled / Long Filler`);
-    customfieldnametxt +=  'Blender';
-    customfieldvaluetxt +=  `Nelson Alfonso`;
-    customfieldnames.push('Blender');
-    customfieldvalues.push(`Nelson Alfonso`);
-    customfieldnametxt +=  'Country of Origin';
-    customfieldvaluetxt +=  `Costa Rica`;
-    customfieldnames.push('Country of Origin');
-    customfieldvalues.push(`Costa Rica`);
-
-
-
-carturl = "https://atlanticcigar.com/byron-19th-century-grand-poemas-6x56/";
-carturl = carturl.replace( /\&amp;/g, '&' );
-var el = [];
-
-var catcls1=[];
-var catcls2=[];
-var catcls3=[];
-
-var productdata = [];
-productdata['url'] = "https://atlanticcigar.com/byron-19th-century-grand-poemas-6x56/";
-function decodeHtmlEntities(str) { 
-const txt = document.createElement("textarea");
-txt.innerHTML = str;
-return txt.value;
-} 
-
-var Brandname = "&quot;Byron 19th Century&quot;";
-if(Brandname){
-   const decodedString = decodeHtmlEntities(Brandname); 
-    productdata['brand'] = decodedString;
-}
-
-
-
-if(categoryclass){
-catcls1[0] =$("a[href='"+carturl+"']").closest('.product-item').find('.product-item-title');
-
-}
-
-
-if(categoryclass2){
-
-catcls2[0] =$("a[href='"+carturl+"']").closest('').find('.card-title');
-
-}
-
-if(categoryclass3){
-catcls3[0] =$("a[href='"+carturl+"']").closest('').find('.card-title');
-
-}
-
-
-if(catcls1)
-{ chkel = $("a[href='"+carturl+"']").closest('.product-item').find('.starb-group-1');
-}else if(catcls2)
-{ chkel = $("a[href='"+carturl+"']").closest('').find('.starb-group-2');
-}else if(catcls3)
-{ chkel = $("a[href='"+carturl+"']").closest('').find('.starb-group-3');
-}
-            if(chkel.length == 0){
-    suprBadge(suprInventory,suprInventorySellout,suprprice,suprcompareprice,suprAmountDiscountprice,suprPercentDiscount,starbProdudctid,starbCollectionId,customfieldnametxt,customfieldvaluetxt,customfieldnames,customfieldvalues,catcls1, catcls2, catcls3,'category',bulkdiscountrates,preorder,productdata,mypagetype,customid,customname);
-    
-            }
-    
-
-
-
-
-
 
         var starbCSSClass = starbCSSClass;
 var isStartbShowBadge = false;
@@ -10947,6 +10748,203 @@ if(catcls1)
 
 
 
+        var starbCSSClass = starbCSSClass;
+var isStartbShowBadge = false;
+if(starbCSSClass == undefined ){
+
+    starbCSSClass = "";    
+}
+
+var starbStyle = starbStyle;
+
+if(starbStyle == undefined ){
+
+    starbStyle = "";    
+}
+
+var starbProduct          = "";
+var starbMaxDisplayBadge  = 5;
+
+if(starbMaxDisplayBadge == undefined ){
+
+    starbStyle = 1;    
+}
+
+var categoryclass = "3";
+var categoryclass2 = "3";
+var categoryclass3 = "3";
+
+
+var starbBadgeCounter     = 1;
+var starbCreatedDateSec     = "2019-12-24";
+
+if(starbCreatedDateSec == undefined ){
+
+    starbCreatedDateSec = "";    
+}
+
+var starbDateDiff = "3";
+
+var starbProductDate = new Date(''),
+    starbCurrentDate   = new Date(),
+    starbdiff  = new Date(starbCurrentDate - starbProductDate),
+    starbDateDiff  = starbdiff/1000;
+
+
+
+var suprInventory        = null;
+var suprprice    = 0;
+var suprcompareprice    = 0;
+var suprAmountDiscountprice   = 0;
+var suprPercentDiscount   = 0
+var suprInventorySellout = 0;
+var starbProdudctid = 47769;
+var starbCollectionId = 'Cigars,Cigars/All Cigars';
+var suprCustomerGroup = '';
+
+suprCustomerGroup = "";
+
+
+
+
+
+
+
+
+if(suprprice == 0){
+if(636.99 != ''){
+    var suprprice    = 636.99;
+}
+
+
+
+}
+
+
+
+if(113.01 != ''){
+    var suprsaved   = 113.01;
+    var suprcompareprice = suprprice+suprsaved;
+}
+
+if(suprcompareprice != 0){
+suprPercentDiscount = ((suprcompareprice-suprprice)/suprcompareprice)*100;
+}
+
+var bulkdiscountrates = 0;
+
+
+var preorder = 0;
+
+
+
+var customfieldnametxt  = '';
+var customfieldvaluetxt = '';
+var customfieldnames = [];
+var customfieldvalues = [];
+    customfieldnametxt +=  'Country of Origin';
+    customfieldvaluetxt +=  `Nicaragua`;
+    customfieldnames.push('Country of Origin');
+    customfieldvalues.push(`Nicaragua`);
+    customfieldnametxt +=  'Shape';
+    customfieldvaluetxt +=  `Figurado`;
+    customfieldnames.push('Shape');
+    customfieldvalues.push(`Figurado`);
+    customfieldnametxt +=  'Blender';
+    customfieldvaluetxt +=  `Perdomo`;
+    customfieldnames.push('Blender');
+    customfieldvalues.push(`Perdomo`);
+    customfieldnametxt +=  'Strength';
+    customfieldvaluetxt +=  `Medium`;
+    customfieldnames.push('Strength');
+    customfieldvalues.push(`Medium`);
+    customfieldnametxt +=  'Size';
+    customfieldvaluetxt +=  `6 x 48 x 60 x 52`;
+    customfieldnames.push('Size');
+    customfieldvalues.push(`6 x 48 x 60 x 52`);
+    customfieldnametxt +=  'Grade';
+    customfieldvaluetxt +=  `Hand Rolled / Long Filler`;
+    customfieldnames.push('Grade');
+    customfieldvalues.push(`Hand Rolled / Long Filler`);
+    customfieldnametxt +=  'Color';
+    customfieldvaluetxt +=  `Colorado`;
+    customfieldnames.push('Color');
+    customfieldvalues.push(`Colorado`);
+    customfieldnametxt +=  'Binder / Filler';
+    customfieldvaluetxt +=  `Nicaraguan / Nicaraguan`;
+    customfieldnames.push('Binder / Filler');
+    customfieldvalues.push(`Nicaraguan / Nicaraguan`);
+    customfieldnametxt +=  'Wrapper Type';
+    customfieldvaluetxt +=  `Nicaraguan Shade-Grown`;
+    customfieldnames.push('Wrapper Type');
+    customfieldvalues.push(`Nicaraguan Shade-Grown`);
+    customfieldnametxt +=  'Box Pressed';
+    customfieldvaluetxt +=  `Yes`;
+    customfieldnames.push('Box Pressed');
+    customfieldvalues.push(`Yes`);
+
+
+
+carturl = "https://atlanticcigar.com/perdomo-legacy-father-son-shade-grown-gran-figurado-bp/";
+carturl = carturl.replace( /\&amp;/g, '&' );
+var el = [];
+
+var catcls1=[];
+var catcls2=[];
+var catcls3=[];
+
+var productdata = [];
+productdata['url'] = "https://atlanticcigar.com/perdomo-legacy-father-son-shade-grown-gran-figurado-bp/";
+function decodeHtmlEntities(str) { 
+const txt = document.createElement("textarea");
+txt.innerHTML = str;
+return txt.value;
+} 
+
+var Brandname = "&quot;Perdomo Legacy Father &amp; Son&quot;";
+if(Brandname){
+   const decodedString = decodeHtmlEntities(Brandname); 
+    productdata['brand'] = decodedString;
+}
+
+
+
+if(categoryclass){
+catcls1[0] =$("a[href='"+carturl+"']").closest('.product-item').find('.product-item-title');
+
+}
+
+
+if(categoryclass2){
+
+catcls2[0] =$("a[href='"+carturl+"']").closest('').find('.card-title');
+
+}
+
+if(categoryclass3){
+catcls3[0] =$("a[href='"+carturl+"']").closest('').find('.card-title');
+
+}
+
+
+if(catcls1)
+{ chkel = $("a[href='"+carturl+"']").closest('.product-item').find('.starb-group-1');
+}else if(catcls2)
+{ chkel = $("a[href='"+carturl+"']").closest('').find('.starb-group-2');
+}else if(catcls3)
+{ chkel = $("a[href='"+carturl+"']").closest('').find('.starb-group-3');
+}
+            if(chkel.length == 0){
+    suprBadge(suprInventory,suprInventorySellout,suprprice,suprcompareprice,suprAmountDiscountprice,suprPercentDiscount,starbProdudctid,starbCollectionId,customfieldnametxt,customfieldvaluetxt,customfieldnames,customfieldvalues,catcls1, catcls2, catcls3,'category',bulkdiscountrates,preorder,productdata,mypagetype,customid,customname);
+    
+            }
+    
+
+
+
+
+
+
 
 
 
@@ -11050,5 +11048,5 @@ $(document).on('setPosition init', '.slick-slider', function () {
 
 </script>
 
-<script>window.__CF$cv$params={r:'a55dc4bfbee8ad0e',t:'MTc5MzkwMTczNg==',u:'01a1ace036f5767eac90ea153bca5add',ut:'vubaA9XFfqb5uTQgNoUNulQHQw7bIOlhWuuaeMQKCH8-1793901737-1.2.1.1-lx__bKomeAa2lstdY8TXLN3S_dbNwm1sLWTBhjT.c9Uyg6YlTEYEIrQfz9Gyw0iTw1W3KG.jK_UF2iRB5akghLVRAbu2IZqlM1Qu9Xt32CQ',i:60};(function(){if(!document.body)return;var l=window.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a55dc4bfbee8ad0e',s=document.createElement('script');s.src=o?new URL(u,o).href:u;document.head.appendChild(s);})();</script></body>
+<script>window.__CF$cv$params={r:'a55e26b78d6e155b',t:'MTc5MzkwNTc0OQ==',u:'01a1ad1d727577d09e466832f2c38f79',ut:'UBy0jXYsSuGHCi_Psz.RTVYC00JC4tvm.yECNcqXW6A-1793905750-1.2.1.1-e_zzpZ4Dgr19Hjqus4LjK8EiwrjAAzE71fWo0vKvtM3CpYPm8BE6saiZW0bT2pSwwEY8sI3cT54lct7YsjbmeR94.qrTUe9Dl597vtaq9ns',i:60};(function(){if(!document.body)return;var l=window.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/precursor/main.js?ray=a55e26b78d6e155b',s=document.createElement('script');s.src=o?new URL(u,o).href:u;document.head.appendChild(s);})();</script></body>
 </html>
