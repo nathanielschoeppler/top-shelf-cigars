@@ -261,26 +261,34 @@ def parse_jsonld(html, base):
 
 
 def parse_atlantic(html, base):
-    """Atlantic Cigar (BigCommerce). Listing shows 'single - box' price ranges; we keep the single."""
+    """Atlantic Cigar (BigCommerce). Listing shows 'single - box' price ranges; we keep the single price."""
     soup = BeautifulSoup(html, "html.parser")
     out = []
-    for card in soup.select("article.card, li.product"):
-        a = card.select_one(".card-title a, h4 a")
-        if not a:
+    for card in soup.select("article.product-item"):
+        t = card.select_one(".product-item-title")
+        link = card.select_one("a.product-item-image[href], .product-item-title a[href], a[data-quick-shop][href]")
+        if not t or not link:
             continue
-        text = card.get_text(" ", strip=True)
-        if "out of stock" in text.lower():
+        if card.select_one(".alert-error") and "out of stock" in card.select_one(".alert-error").get_text(" ", strip=True).lower():
             continue
-        prices = re.findall(r"\$([\d,]+\.\d{2})", text)
+        price_el = card.select_one(".price-without-tax, .price")
+        prices = re.findall(r"\$([\d,]+\.\d{2})", price_el.get_text(" ", strip=True) if price_el else "")
         if not prices:
             continue
         single = float(prices[0].replace(",", ""))
         img = card.select_one("img")
-        src = (img.get("data-src") or img.get("src") or "") if img else ""
-        src = re.sub(r"/stencil/[^/]+/", "/stencil/500x659/", src)
-        out.append(dict(name=a.get_text(" ", strip=True), url=urljoin(base, a["href"]), price=single, msrp=single,
-                        count=1, pack="Single cigar", ends=None, strength=None, freeShipping=False,
-                        perk=None, image=src or None))
+        src = ""
+        if img:
+            srcset = img.get("data-srcset") or img.get("srcset") or ""
+            m = re.search(r"(https://\S+/stencil/640w/\S+)\s", srcset) or re.search(r"(https://\S+)\s+\d+w", srcset)
+            src = m.group(1) if m else (img.get("data-src") or img.get("src") or "")
+        name = t.get_text(" ", strip=True)
+        vit = re.search(r"\(([\d\s/.-]+x[\d\s/.-]+)\)", name)
+        out.append(dict(name=re.sub(r"\s*\([^)]*\)\s*$", "", name), url=urljoin(base, link["href"]),
+                        price=single, msrp=single, count=1, pack="Single cigar",
+                        vitola=vit.group(1).replace("x", " × ") if vit else None,
+                        ends=None, strength=None, freeShipping=False, perk=None,
+                        image=src if src.startswith("http") else None))
     return out
 
 
@@ -330,6 +338,25 @@ def split_brand(name):
     return (" ".join(parts[:2]), " ".join(parts[2:]) or name) if len(parts) > 2 else (name, name)
 
 
+KNOWN_STRENGTH = [
+    (r"padr[oó]n.*(1926|40th|80|black|pb)", "Full"), (r"padr[oó]n.*(family reserve|1964|50 years|44 years|no\\. 9[05])", "Medium"),
+    (r"liga privada.*(h99|t52|no\\. ?9|flying pig|super ancho)", "Full"), (r"liga privada", "Medium-Full"),
+    (r"davidoff.*(signature|grand cru|aniversario|millennium|royal|winston|late hour)", "Medium"),
+    (r"davidoff.*(colorado|nicaragua|yamasa|escurio)", "Medium-Full"), (r"cohiba.*(royale|nicaragua)", "Full"),
+    (r"cohiba", "Medium-Full"), (r"ashton.*(esg|vsg|symmetry)", "Medium-Full"), (r"la flor dominicana", "Full"),
+    (r"(fuente.*opus|opusx)", "Full"), (r"arturo fuente.*(anejo|hemingway|don carlos)", "Medium"),
+    (r"(atabey|byron|paul garmirian|diamond crown|meerapfel|alfonso)", "Medium"),
+    (r"(plasencia|el septimo|tatuaje|my father|aj fernandez|oliva serie v)", "Medium-Full"),
+]
+
+
+def known_strength(name):
+    for pat, st in KNOWN_STRENGTH:
+        if re.search(pat, name, re.I):
+            return st
+    return None
+
+
 def keep(d):
     name = d["name"]
     if SKIP_WORDS.search(name) and not ALLOW_WORDS.search(name):
@@ -366,14 +393,14 @@ def main():
             ok = True
             items = parser(html, url)
             log(f"  {len(items):3d} items  {url}")
-            if not items and i == 0:
+            if i == 0:
                 save_debug(prefix, html)
             raw += items
         kept = 0
         for r in raw:
             if not keep(r):
                 continue
-            strength = norm_strength(r.get("strength"))
+            strength = norm_strength(r.get("strength")) or known_strength(r["name"])
             if not strength:
                 info = product_info(r["url"])
                 if not info or info["machine"] or info["flavored"]:
@@ -398,7 +425,7 @@ def main():
             deal = {k: v for k, v in deal.items() if v is not None}
             found[did] = deal
             kept += 1
-        sources.append({"name": store, "ok": ok and len(raw) > 0, "count": kept})
+        sources.append({"name": store, "ok": ok and kept > 0, "count": kept, "seen": len(raw)})
         log(f"  kept {kept}")
 
     # Keep recent deals from stores that couldn't be read this run.
