@@ -124,8 +124,10 @@ select { font: 500 13px var(--f-ui); padding: 7px 28px 7px 12px; border-radius: 
 .deal { position: relative; display: flex; flex-direction: column; min-width: 0; border-radius: var(--r); border: 1px solid var(--line); background: linear-gradient(180deg, var(--surface-2), var(--surface)); overflow: hidden; }
 @media (prefers-reduced-motion: no-preference) { .deal { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; } .deal:hover { transform: translateY(-3px); } }
 .deal:hover { border-color: var(--line-2); box-shadow: 0 24px 48px -28px rgba(255, 107, 44, .45); }
-.art { position: relative; height: 150px; display: grid; place-items: center; overflow: hidden; background: radial-gradient(70% 90% at 50% 110%, rgba(255, 107, 44, .22), transparent 60%), radial-gradient(90% 120% at 30% 0%, #2a1c12 0%, #140f0b 70%); border-bottom: 1px solid var(--line); }
-.art img { width: 100%; height: 100%; object-fit: contain; padding: 10px; display: block; }
+.art { position: relative; height: clamp(150px, 46vw, 190px); display: grid; place-items: center; overflow: hidden; background: radial-gradient(70% 90% at 50% 110%, rgba(255, 107, 44, .22), transparent 60%), radial-gradient(90% 120% at 30% 0%, #2a1c12 0%, #140f0b 70%); border-bottom: 1px solid var(--line); }
+.art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; padding: 14px 18px; display: block; mix-blend-mode: multiply; }
+.art.photo { background: radial-gradient(80% 90% at 50% 45%, #fffaf3 0%, #f1e7da 70%, #e3d4c1 100%); }
+.art.photo .ribbon { background: rgba(22, 16, 12, .78); }
 .art svg { width: 88%; max-width: 300px; height: auto; filter: drop-shadow(0 14px 14px rgba(0, 0, 0, .6)); }
 .art .ribbon { position: absolute; top: 10px; left: 10px; font-family: var(--f-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--text); background: rgba(11, 9, 7, .6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid var(--line-2); border-radius: 999px; padding: 3px 9px; }
 .band { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 16px 0; }
@@ -409,9 +411,10 @@ function cigarArt(d) {
 function artBlock(d, onSale) {
   const box = el("div", "art");
   if (ALLOW_PHOTOS && d.image) {
+    box.classList.add("photo");
     const img = document.createElement("img");
     img.src = d.image; img.alt = d.brand + " " + d.line; img.loading = "lazy"; img.referrerPolicy = "no-referrer";
-    img.addEventListener("error", () => { img.remove(); box.prepend(cigarArt(d)); });
+    img.addEventListener("error", () => { img.remove(); box.classList.remove("photo"); box.prepend(cigarArt(d)); });
     box.append(img);
   } else box.append(cigarArt(d));
   if (d.wrapper) box.append(el("span", "ribbon", d.wrapper + " wrapper"));
