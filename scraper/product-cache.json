@@ -48,5 +48,20 @@
   "strength": "Mild",
   "machine": false,
   "flavored": false
+ },
+ "https://www.cigars.com/item/davidoff-cigar-assortments/figurado-assorted-6ct/DAV6GS.html": {
+  "strength": "Mellow",
+  "machine": false,
+  "flavored": false
+ },
+ "https://www.cigars.com/item/davidoff-cigar-assortments/robusto-assorted-5ct/DAV5GS.html": {
+  "strength": "Mellow",
+  "machine": false,
+  "flavored": false
+ },
+ "https://www.cigars.com/item/davidoff-cigar-assortments/white-series-tubos-3-count/DAV3GS.html": {
+  "strength": "Mellow",
+  "machine": false,
+  "flavored": false
  }
 }
