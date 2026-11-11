@@ -68,5 +68,25 @@
   "strength": "Mellow",
   "machine": false,
   "flavored": false
+ },
+ "https://atlanticcigar.com/viaje-full-moon-13th-anniversary-maduro-limited-edition-gran-toro-bp-6x60/": {
+  "strength": "Full",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/viaje-full-moon-13th-anniversary-natural-limited-edition-gran-toro-bp-6x60/": {
+  "strength": "Full",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/la-aurora-preferidos-hors-d-age-le-2025-toro/": {
+  "strength": "Medium - Full",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/e-p-carrillo-battleborn-limited-edition-2026-6x52/": {
+  "strength": "Medium",
+  "machine": false,
+  "flavored": false
  }
 }
