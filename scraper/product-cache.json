@@ -88,5 +88,10 @@
   "strength": "Medium",
   "machine": false,
   "flavored": false
+ },
+ "https://www.cigars.com/item/padron-samplers/padron-5-cigar-maduro/PDCOL3.html": {
+  "strength": "Mellow",
+  "machine": false,
+  "flavored": false
  }
 }
