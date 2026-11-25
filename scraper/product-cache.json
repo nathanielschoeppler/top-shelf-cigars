@@ -103,5 +103,15 @@
   "strength": "Mild",
   "machine": false,
   "flavored": false
+ },
+ "https://atlanticcigar.com/gellis-family-cigars-piece-unique-toro-pink-6x52/": {
+  "strength": "Mild - Medium",
+  "machine": false,
+  "flavored": false
+ },
+ "https://atlanticcigar.com/highclere-castle-senetjer-by-foundation-perfecto-6-3-4x52/": {
+  "strength": "Full",
+  "machine": false,
+  "flavored": false
  }
 }
